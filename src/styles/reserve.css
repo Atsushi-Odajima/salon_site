@@ -14,7 +14,7 @@
 }
 .progress {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 4px;
   list-style: none;
   padding: 0;
@@ -232,7 +232,7 @@
 }
 .cal-grid {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(0, 1fr));
   gap: 3px;
 }
 .cal-week {
@@ -312,7 +312,7 @@
 }
 .slots {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(94px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(94px, 100%), 1fr));
   gap: 0.5rem;
   margin-bottom: 0.75rem;
 }
@@ -393,7 +393,7 @@
 }
 .confirm-dl div {
   display: grid;
-  grid-template-columns: 6.5rem 1fr;
+  grid-template-columns: minmax(0, 6.5rem) minmax(0, 1fr);
   gap: 0.75rem;
   padding: 0.6rem 0;
   border-top: 1px solid var(--line);

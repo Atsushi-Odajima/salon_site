@@ -7,6 +7,7 @@
 }
 .admin-header .container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   min-height: 64px;
@@ -46,7 +47,7 @@
 /* 日付切り替え */
 .day-nav {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 0.5rem;
   align-items: center;
   margin-bottom: 1rem;
@@ -88,12 +89,12 @@
   padding: 0;
   margin: 0 0 1.25rem;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(min(9.5rem, 100%), 1fr));
   gap: 0.5rem;
 }
 @media (min-width: 700px) {
   .stats {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 }
 .stats li {
@@ -109,6 +110,7 @@
   color: var(--ink-2);
 }
 .stats b {
+  overflow-wrap: anywhere;
   font-size: 1.4rem;
   font-variant-numeric: tabular-nums;
 }
@@ -371,6 +373,8 @@
 }
 .bk-dl dd {
   margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
 }
 .admin-foot {
   display: flex;
