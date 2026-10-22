@@ -2,11 +2,11 @@
 <html lang="ja">
   <head>
 <!--partial:head-->
-    <title>【制作見本】hair salon grace｜似合うカットと、気分に合うカラーを（架空店舗）</title>
-    <meta name="description" content="美容室ホームページの制作見本です（架空店舗 hair salon grace）。ヘアスタイル写真を主役にしたデザインで、メニューを選ぶと合計金額と所要時間が分かる料金シミュレーター、スタイリスト指名からの予約、店側の予約管理画面まで体験できます。" />
+    <title>【制作見本】hair salon grace｜髪から、私らしく。（架空の美容室）</title>
+    <meta name="description" content="美容室ホームページの制作見本です（架空店舗 hair salon grace）。モデル写真とヘアカタログで髪型・髪色の魅力を伝え、料金シミュレーター、スタイリスト指名からの予約、店側の予約管理画面まで体験できます。" />
     <meta property="og:title" content="【制作見本】hair salon grace｜美容室ホームページの見本" />
-    <meta property="og:description" content="ヘアスタイル写真が主役の、白を基調にした美容室ホームページの制作見本（架空店舗）。料金シミュレーター・指名予約・予約管理まで体験できます。" />
-    <link rel="preload" as="image" href="/images/v2/hero-long-highlight-sm.webp" imagesrcset="/images/v2/hero-long-highlight-sm.webp 540w, /images/v2/hero-long-highlight.webp 1200w" imagesizes="(min-width: 960px) 44vw, 60vw" fetchpriority="high" />
+    <meta property="og:description" content="モデル写真とヘアカタログが主役の、白を基調にした美容室ホームページの制作見本（架空店舗）。料金シミュレーター・指名予約・予約管理まで体験できます。" />
+<!--slot:preload-->
   </head>
   <body class="page-home">
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -14,102 +14,67 @@
 <!--partial:header-->
 
     <main id="main">
-      <!-- 1. ヒーロー：ヘアスタイル写真が主役（スマホは写真が先） -->
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-grid">
-          <div class="hero-visual">
-            <figure class="photo hero-main">
-              <img src="/images/v2/hero-long-highlight-sm.webp" srcset="/images/v2/hero-long-highlight-sm.webp 540w, /images/v2/hero-long-highlight.webp 1200w" sizes="(min-width: 960px) 44vw, 60vw" width="1200" height="1600" alt="ハイライトを重ねたベージュブロンドのロングヘア。毛先をやわらかく巻いた後ろ姿" style="object-position:center" fetchpriority="high" />
-            </figure>
-            <figure class="photo hero-sub">
-              <img src="/images/v2/hero-waves-caramel-sm.webp" srcset="/images/v2/hero-waves-caramel-sm.webp 540w, /images/v2/hero-waves-caramel.webp 1200w" sizes="(min-width: 960px) 21vw, 38vw" width="1200" height="1600" alt="根元のブラウンから毛先のキャラメルへ色が移る、ロングのウェーブヘアの横顔" style="object-position:40% center"  />
-            </figure>
+      <!-- 1. ヒーロー：画面いっぱいのモデル写真にブランド名を重ねる -->
+      <section class="hero" aria-label="hair salon grace" data-hero>
+<!--slot:hero-->
+      </section>
+      <script>
+        // ヒーローの上だけヘッダーを透明・白文字にする（高さは変えない）
+        (function () {
+          var h = document.querySelector('[data-header]'), hero = document.querySelector('[data-hero]');
+          if (!h || !hero) return;
+          function u() { h.classList.toggle('is-overlay', hero.getBoundingClientRect().bottom > h.offsetHeight + 1); }
+          u();
+          addEventListener('scroll', u, { passive: true });
+          addEventListener('resize', u);
+        })();
+      </script>
+
+      <!-- 2. HAIR CATALOG -->
+      <section class="catalog-section" id="catalog" aria-labelledby="catalog-title">
+        <div class="container">
+          <div class="sec-head">
+            <h2 class="sec-title" id="catalog-title"><span class="en">HAIR CATALOG</span><span class="ja">ヘアカタログ</span></h2>
           </div>
-          <div class="hero-copy">
-            <p class="hero-kicker"><span>hair salon grace</span><span class="demo-badge">架空店舗の制作見本</span></p>
-            <h1 id="hero-title" class="hero-title"><span>髪が変わる。</span><span>毎日が、少し好きになる。</span></h1>
-            <p class="hero-lead">似合うカットと、気分に合うカラーを。</p>
-            <div class="hero-actions">
-              <a class="btn btn--ghost" href="#menu">メニュー・料金を見る</a>
-              <a class="btn" href="/reserve/" data-reserve-link><span data-icon="calendar"></span>Web予約</a>
+          <ul class="catalog-grid">
+<!--slot:catalog-->
+          </ul>
+          <p class="note catalog-note">掲載写真は素材サイトのスタイルイメージです。当店の施術実績・スタッフの作品ではありません。写真を選ぶと、そのカテゴリのスタイル一覧を表示します。</p>
+
+          <div class="style-list" id="styles">
+            <div id="style-list">
+              <h3 class="style-list-title"><span class="en">STYLES</span>スタイル一覧</h3>
+            </div>
+            <div class="gallery-filters" data-gallery-filters></div>
+            <p class="gallery-count" aria-live="polite" data-gallery-count></p>
+            <ul class="gallery-grid" data-gallery-grid></ul>
+            <div class="gallery-empty" data-gallery-empty hidden>
+              <p>この条件に合う写真は、いまはありません。絞り込みを解除してください。</p>
+              <button type="button" class="btn btn--ghost btn--sm" data-gallery-reset>絞り込みを解除する</button>
             </div>
           </div>
         </div>
       </section>
-      <div class="info-strip" aria-label="営業のご案内">
-        <ul class="container">
-          <li><span data-icon="clock" data-icon-size="20"></span>営業 <b>9:30〜19:00</b></li>
-          <li><span data-icon="calendar" data-icon-size="20"></span>定休日 <b>月曜・第3火曜</b></li>
-          <li><span data-icon="parking" data-icon-size="20"></span>駐車場 <b>4台（無料）</b></li>
-        </ul>
-      </div>
 
-      <!-- 2. ピックアップスタイル -->
-      <section class="pickup-section" id="styles-pickup" aria-labelledby="pickup-title">
+      <!-- 3. PICK UP STYLE -->
+      <section class="pickup-section section-alt" id="pickup" aria-labelledby="pickup-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Pick up styles</p>
-            <h2 id="pickup-title" class="section-title">なりたい髪を、見つける。</h2>
-            <p class="note">掲載写真は素材サイトのスタイルイメージです（当店の施術実績ではありません）。</p>
+          <div class="sec-head">
+            <h2 class="sec-title" id="pickup-title"><span class="en">PICK UP STYLE</span><span class="ja">おすすめスタイル</span></h2>
+            <p class="sec-lead">写真のスタイルに近づけたいときは、カウンセリングで画像を見せてください。似合わせ方をご相談しながら決めます。</p>
           </div>
-          <ul class="pickup-grid">
-            <li>
-              <figure class="photo"><img src="/images/v2/bob-black-round-sm.webp" srcset="/images/v2/bob-black-round-sm.webp 533w, /images/v2/bob-black-round.webp 889w" sizes="(min-width: 900px) 22vw, 45vw" width="889" height="1200" alt="肩上の長さで毛先を内側に丸めた、黒髪のボブの横顔" style="object-position:center" loading="lazy" decoding="async" /></figure>
-              <p class="style-cap">丸みのある黒髪ボブ<span>ボブ・内巻き</span></p>
-            </li>
-            <li>
-              <figure class="photo"><img src="/images/v2/bob-inner-color-sm.webp" srcset="/images/v2/bob-inner-color-sm.webp 540w, /images/v2/bob-inner-color.webp 900w" sizes="(min-width: 900px) 22vw, 45vw" width="900" height="1200" alt="ブラウンのボブの内側に明るいブロンドを入れたインナーカラー（後ろ姿）" style="object-position:center" loading="lazy" decoding="async" /></figure>
-              <p class="style-cap">ブラウンボブ×インナーカラー<span>ボブ・カラー</span></p>
-            </li>
-            <li>
-              <figure class="photo"><img src="/images/v2/layer-waves-lob-sm.webp" srcset="/images/v2/layer-waves-lob-sm.webp 540w, /images/v2/layer-waves-lob.webp 900w" sizes="(min-width: 900px) 22vw, 45vw" width="900" height="1200" alt="ベージュブラウンの髪にレイヤーを入れ、ゆるい外ハネのウェーブにしたロブ" style="object-position:center" loading="lazy" decoding="async" /></figure>
-              <p class="style-cap">レイヤーの外ハネロブ<span>ミディアム・ウェーブ</span></p>
-            </li>
-            <li>
-              <figure class="photo"><img src="/images/v2/medium-brown-curl-ends-sm.webp" srcset="/images/v2/medium-brown-curl-ends-sm.webp 576w, /images/v2/medium-brown-curl-ends.webp 960w" sizes="(min-width: 900px) 22vw, 45vw" width="960" height="1200" alt="ツヤのあるブラウンのミディアムヘア。毛先だけを内側に巻いた後ろ姿" style="object-position:center" loading="lazy" decoding="async" /></figure>
-              <p class="style-cap">毛先カールのミディアム<span>ミディアム・ツヤ</span></p>
-            </li>
-          </ul>
-          <a class="more-link" href="#styles">スタイルギャラリーをもっと見る<span data-icon="nav-arrow-right" data-icon-size="20"></span></a>
+          <ol class="pickup-list">
+<!--slot:pickup-->
+          </ol>
+          <p class="note catalog-note">掲載写真は素材サイトのスタイルイメージです（当店の施術実績ではありません）。</p>
         </div>
       </section>
 
-      <!-- 3. カット・カラー・ケア -->
-      <section class="service-section" id="services" aria-labelledby="services-title">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Cut / Color / Care</p>
-            <h2 id="services-title" class="section-title">カット・カラー・ケア</h2>
-          </div>
-          <ul class="service-grid">
-            <li>
-              <figure class="photo"><img src="/images/v2/bob-ash-side-sm.webp" srcset="/images/v2/bob-ash-side-sm.webp 720w, /images/v2/bob-ash-side.webp 1200w" sizes="(min-width: 800px) 30vw, 92vw" width="1200" height="946" alt="外ハネに動きを出した、アッシュグレージュのボブの横顔" style="object-position:35% center" loading="lazy" decoding="async" /></figure>
-              <h3>カット<span class="en">Cut</span></h3>
-              <p>輪郭と毛先の形を、骨格やくせに合わせて整えます。家で乾かすだけでまとまる長さとシルエットをご提案します。</p>
-              <a class="text-link" href="#menu">カットの料金を見る</a>
-            </li>
-            <li>
-              <figure class="photo"><img src="/images/v2/color-balayage-duo-sm.webp" srcset="/images/v2/color-balayage-duo-sm.webp 720w, /images/v2/color-balayage-duo.webp 1200w" sizes="(min-width: 800px) 30vw, 92vw" width="1200" height="1200" alt="ブロンドとベージュの明るい髪色をした、2人のロングウェーブの後ろ姿" style="object-position:center" loading="lazy" decoding="async" /></figure>
-              <h3>カラー<span class="en">Color</span></h3>
-              <p>明るさや色味を、肌なじみやなりたい雰囲気に合わせてご相談しながら決めます。ベージュ・ブラウン系のやわらかな色もお任せください。</p>
-              <a class="text-link" href="#menu">カラーの料金を見る</a>
-            </li>
-            <li>
-              <figure class="photo"><img src="/images/v2/straight-gloss-sm.webp" srcset="/images/v2/straight-gloss-sm.webp 540w, /images/v2/straight-gloss.webp 1200w" sizes="(min-width: 800px) 30vw, 92vw" width="1200" height="1600" alt="ツヤのある、まっすぐなブラウンのロングヘア" style="object-position:70% center" loading="lazy" decoding="async" /></figure>
-              <h3>ケア<span class="en">Care</span></h3>
-              <p>トリートメントやヘッドスパで、手触りとまとまりを整えます。カラーやパーマと一緒にどうぞ。</p>
-              <a class="text-link" href="#menu">ケアの料金を見る</a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 4. メニュー・料金表 -->
+      <!-- 4. MENU & PRICE -->
       <section class="menu-section" id="menu" aria-labelledby="menu-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Menu &amp; Price</p>
-            <h2 id="menu-title" class="section-title">メニュー・料金</h2>
+          <div class="sec-head">
+            <h2 class="sec-title" id="menu-title"><span class="en">MENU &amp; PRICE</span><span class="ja">メニュー・料金</span></h2>
           </div>
           <ul class="price-rules" aria-label="料金のきまり">
             <li><span data-icon="hand-cash" data-icon-size="20"></span><span><b>すべて税込</b>の固定料金です</span></li>
@@ -121,13 +86,13 @@
         </div>
       </section>
 
+
       <!-- 5. 料金シミュレーター -->
       <section class="simulator-section section-alt" id="simulator" aria-labelledby="sim-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Price simulator</p>
-            <h2 id="sim-title" class="section-title">料金シミュレーター</h2>
-            <p class="lead">メニューを選ぶと、合計金額と所要時間がその場で分かります。そのまま予約にも進めます。</p>
+          <div class="sec-head">
+            <h2 class="sec-title" id="sim-title"><span class="en">PRICE SIMULATOR</span><span class="ja">料金シミュレーター</span></h2>
+            <p class="sec-lead">メニューを選ぶと、合計金額と所要時間がその場で分かります。そのまま予約にも進めます。</p>
           </div>
           <div class="simulator" data-simulator>
             <div class="sim-steps">
@@ -149,66 +114,49 @@
         </div>
       </section>
 
-      <!-- 6. スタイリスト紹介 -->
+
+      <!-- 6. STYLIST -->
       <section class="staff-section" id="staff" aria-labelledby="staff-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Stylist</p>
-            <h2 id="staff-title" class="section-title">スタイリスト紹介</h2>
-            <p class="lead">美容師2名とアシスタント1名の、小さなチームです。気になる担当者がいれば、そのまま指名して予約できます。</p>
+          <div class="sec-head">
+            <h2 class="sec-title" id="staff-title"><span class="en">STYLIST</span><span class="ja">スタイリスト</span></h2>
+            <p class="sec-lead">美容師2名とアシスタント1名の、小さなチームです。気になる担当者がいれば、そのまま指名して予約できます。</p>
           </div>
           <div class="staff-list" data-staff></div>
         </div>
       </section>
 
-      <!-- 7. スタイルギャラリー -->
-      <section class="gallery-section" id="styles" aria-labelledby="styles-title">
-        <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">Style gallery</p>
-            <h2 id="styles-title" class="section-title">スタイルギャラリー</h2>
-            <p class="note">掲載写真は素材サイトのスタイルイメージです。当店の施術実績・スタッフの作品ではありません。</p>
-          </div>
-          <div class="gallery-filters" data-gallery-filters></div>
-          <p class="gallery-count" aria-live="polite" data-gallery-count></p>
-          <ul class="gallery-grid" data-gallery-grid></ul>
-          <div class="gallery-empty" data-gallery-empty hidden>
-            <p>この条件に合う写真は、いまはありません。条件を変えるか、絞り込みを解除してください。</p>
-            <button type="button" class="btn btn--ghost btn--sm" data-gallery-reset>絞り込みを解除する</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- 8. サロン紹介・店内 -->
+      <!-- 7. SALON -->
       <section class="salon-section section-alt" id="salon" aria-labelledby="salon-title">
-        <div class="container salon-grid">
-          <div>
-            <p class="eyebrow">Salon</p>
-            <h2 id="salon-title" class="section-title">サロン紹介</h2>
-            <p>セット面4席の小さなサロンです。となりの席との間を広くとり、明るい照明の下で髪の色や質感を確かめながら仕上げます。メンズ・お子さまのご来店も歓迎です。</p>
-            <ul class="salon-facts">
-              <li><b>4</b><span>セット面</span></li>
-              <li><b>2</b><span>シャンプー台</span></li>
-              <li><b>1</b><span>個室スパルーム</span></li>
-            </ul>
+        <div class="container">
+          <div class="sec-head">
+            <h2 class="sec-title" id="salon-title"><span class="en">SALON</span><span class="ja">サロンについて</span></h2>
           </div>
-          <div>
-            <ul class="salon-photos" aria-label="店内のイメージ">
-              <li><figure class="photo"><img src="/images/interior-chair-900.webp" width="600" height="900" alt="木目の鏡台と楕円の鏡の前に置かれたスタイリングチェア" loading="lazy" decoding="async" /></figure><p>セット面 4席</p></li>
-              <li><figure class="photo"><img src="/images/interior-shampoo-900.webp" width="900" height="600" alt="白いシャンプーボウルが並ぶシャンプー台" loading="lazy" decoding="async" /></figure><p>シャンプー台 2台</p></li>
-              <li><figure class="photo"><img src="/images/v2/finish-stylist-sm.webp" srcset="/images/v2/finish-stylist-sm.webp 480w, /images/v2/finish-stylist.webp 800w" sizes="(min-width: 900px) 18vw, 30vw" width="800" height="1200" alt="スタイリストがキャラメルブラウンのウェーブヘアを手で整えている仕上げの様子" style="object-position:center" loading="lazy" decoding="async" /></figure><p>仕上げまで丁寧に</p></li>
-            </ul>
-            <p class="note photo-credit-note">※店内写真は素材サイトのイメージ写真です。</p>
+          <div class="salon-grid">
+            <div>
+              <p>セット面4席・シャンプー台2台の小さなサロンです。となりの席との間を広くとり、明るい照明の下で髪色を確かめながら仕上げます。</p>
+              <p>ヘッドスパは個室で、カットやカラーと一緒にご予約いただけます。お子さま連れ・メンズの方も歓迎です。</p>
+              <ul class="salon-facts">
+                <li><b>4</b><span>セット面</span></li>
+                <li><b>2</b><span>シャンプー台</span></li>
+                <li><b>1</b><span>個室スパルーム</span></li>
+              </ul>
+            </div>
+            <div>
+              <ul class="salon-photos" aria-label="店内のイメージ">
+<!--slot:salon-->
+              </ul>
+              <p class="note photo-credit-note">※店内写真は素材サイトのイメージ写真です。</p>
+            </div>
           </div>
         </div>
       </section>
 
-      <!-- 9. 初めての方へ・FAQ -->
+      <!-- 8. 初めての方へ・FAQ -->
       <section class="first-section" id="first" aria-labelledby="first-title">
         <div class="container">
-          <div class="section-head">
-            <p class="eyebrow">First visit &amp; FAQ</p>
-            <h2 id="first-title" class="section-title">初めての方へ</h2>
+          <div class="sec-head">
+            <h2 class="sec-title" id="first-title"><span class="en">FIRST VISIT</span><span class="ja">初めての方へ・よくある質問</span></h2>
           </div>
           <div class="first-grid">
             <div>
@@ -269,12 +217,15 @@
         </div>
       </section>
 
-      <!-- 10. アクセス・営業時間 -->
-      <section class="access-section" id="access" aria-labelledby="access-title">
-        <div class="container access-grid">
-          <div>
-            <p class="eyebrow">Access</p>
-            <h2 id="access-title" class="section-title">アクセス・営業時間</h2>
+
+      <!-- 9. ACCESS -->
+      <section class="access-section section-alt" id="access" aria-labelledby="access-title">
+        <div class="container">
+          <div class="sec-head">
+            <h2 class="sec-title" id="access-title"><span class="en">ACCESS</span><span class="ja">アクセス・営業時間</span></h2>
+          </div>
+          <div class="access-grid">
+            <div>
             <dl class="access-dl">
               <div><dt><span data-icon="map-pin" data-icon-size="20"></span>住所</dt><dd>〒000-0000 〇〇県〇〇市〇〇町1-2-3（ダミー表記）</dd></div>
               <div><dt><span data-icon="phone" data-icon-size="20"></span>電話</dt><dd>000-0000-0000（ダミー）<br /><button type="button" class="text-link link-btn" data-demo="tel">電話をかける（デモ）</button></dd></div>
@@ -312,18 +263,19 @@
             </svg>
             <figcaption class="note">※見本のため、地図は仮の案内図です。実在の場所を示すものではありません。実店舗では Google マップを埋め込みます。</figcaption>
           </figure>
+          </div>
         </div>
       </section>
 
-      <!-- 11. 予約案内 -->
-      <section class="reserve-guide section-alt" id="reserve-guide" aria-labelledby="guide-title">
-        <div class="container guide-inner">
-          <div>
-            <p class="eyebrow">Reservation</p>
-            <h2 id="guide-title" class="section-title">ご予約・ご相談</h2>
-            <p>Web予約は24時間受付。LINE・ホットペッパービューティーからもご予約いただけます。</p>
+
+      <!-- 10. 予約案内 -->
+      <section class="reserve-guide" id="reserve-guide" aria-labelledby="guide-title">
+        <div class="container">
+          <div class="sec-head">
+            <h2 class="sec-title" id="guide-title"><span class="en">RESERVATION</span><span class="ja">ご予約・ご相談</span></h2>
+            <p class="sec-lead">Web予約は24時間受付。LINE・ホットペッパービューティーからもご予約いただけます。</p>
           </div>
-          <div>
+          <div class="guide-wrap">
             <div class="guide-actions">
               <a class="btn" href="/reserve/" data-reserve-link><span data-icon="calendar"></span>Web予約</a>
               <button type="button" class="btn btn--ghost" data-demo="tel"><span data-icon="phone"></span>電話する</button>

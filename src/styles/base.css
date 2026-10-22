@@ -1,19 +1,19 @@
 /* =========================================================
    デザイントークン（hair salon grace）
-   白を基調に、写真（髪色）をアクセントにする。文字はチャコール。
+   白を基調に、モデル写真（髪色・服・表情）で雰囲気を作る。文字は黒に近い色、ボタンは黒の長方形。
    本文・価格・注記は WCAG AA（4.5:1 以上）を満たす濃さに固定。
    ========================================================= */
 :root {
   --bg: #ffffff;           /* メイン背景 */
-  --bg-2: #f7f7f7;         /* 補助背景 */
+  --bg-2: #f5f5f5;         /* 補助背景 */
   --bg-3: #eeeeee;         /* 無効状態・面 */
   --surface: #ffffff;      /* カード・入力欄 */
   --line: #e5e5e5;         /* 境界線 */
   --line-strong: #cccccc;  /* 強めの境界線 */
-  --text: #222222;         /* 主な文字 */
+  --text: #202020;         /* 主な文字 */
   --text-2: #555555;       /* 補助文字（白上 7.4:1） */
   --text-3: #666666;       /* 注記（白上 5.7:1／#f7f7f7 上 5.3:1） */
-  --primary: #2b2b2b;      /* 主な予約ボタン：濃いチャコール */
+  --primary: #111111;      /* 主な予約ボタン：黒＋白文字（長方形） */
   --primary-hover: #000000;
   --danger: #a1281a;
   --focus: #1f5f8b;
@@ -32,8 +32,8 @@
 
   --gutter: clamp(20px, 5vw, 64px);
   --maxw: 1240px;
-  --radius: 4px;
-  --radius-lg: 6px;
+  --radius: 2px;
+  --radius-lg: 4px;
   --tap: 52px;             /* ボタンの最小高さ */
   --bar-h: 0px;            /* スマホ固定バーの高さ（下で上書き） */
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -314,41 +314,64 @@ textarea {
 }
 
 /* ---------- ヘッダー・ロゴ ---------- */
+/* 高さは常に一定（--header-h）。トップのヒーロー上だけ透明・白文字（.is-overlay）にし、
+   ヒーローを過ぎたら白背景・黒文字に切り替える。色だけが変わるので画面は跳ねない。 */
+:root {
+  --header-h: 60px;
+}
+@media (min-width: 960px) {
+  :root {
+    --header-h: 76px;
+  }
+}
 .site-header {
   position: sticky;
   top: 0;
   z-index: 40;
-  background: rgba(255, 255, 255, 0.97);
+  height: var(--header-h);
+  background: #fff;
+  color: var(--text);
   border-bottom: 1px solid var(--line);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
-.site-header .container {
+.site-header.is-overlay {
+  background: transparent;
+  color: #fff;
+  border-bottom-color: transparent;
+}
+.header-inner {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  min-height: 60px;
+  gap: 0.75rem;
+  height: 100%;
+  padding-left: var(--gutter);
 }
 .logo {
   display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
   text-decoration: none;
-  color: var(--text);
+  color: inherit;
   margin: 0 auto 0 0;
   line-height: 1;
 }
 .logo-sub {
   font-family: var(--font-latin);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.32em;
-  margin-left: 0.1em;
+  letter-spacing: 0.34em;
+  margin-left: 0.12em;
 }
 .logo-main {
   font-family: var(--font-latin);
-  font-size: 2rem;
+  font-size: 1.9rem;
   font-weight: 600;
-  letter-spacing: 0.06em;
-  margin-top: -0.05em;
+  letter-spacing: 0.08em;
+  margin-top: -0.04em;
+}
+.is-overlay .logo,
+.is-overlay .global-nav > ul a {
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
 }
 .global-nav ul {
   list-style: none;
@@ -357,32 +380,55 @@ textarea {
 }
 .global-nav a {
   text-decoration: none;
-  color: var(--text);
+  color: inherit;
 }
-.nav-reserve {
-  display: none;
+/* 黒い長方形の予約ボタン（ヘッダー右端） */
+.header-reserve {
+  align-self: stretch;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  min-width: 72px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.875rem;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+}
+.header-reserve:hover {
+  background: #000;
 }
 .menu-toggle {
   display: inline-flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  min-height: 48px;
-  padding: 0 0.6rem;
+  justify-content: center;
+  gap: 6px;
+  align-self: stretch;
+  min-width: 56px;
+  padding: 0 0.5rem;
   border: 0;
   background: none;
-  font-size: 0.875rem;
+  font-size: 0.6875rem;
   font-weight: 700;
-  color: var(--text);
+  color: inherit;
   cursor: pointer;
+  order: -1;
+  margin-left: calc(-1 * var(--gutter) + 4px);
 }
 .menu-lines,
 .menu-lines::before,
 .menu-lines::after {
   display: block;
-  width: 20px;
+  width: 22px;
   height: 1.5px;
-  background: var(--text);
+  background: currentColor;
   position: relative;
+}
+.menu-lines {
+  margin-top: 4px;
 }
 .menu-lines::before,
 .menu-lines::after {
@@ -391,15 +437,18 @@ textarea {
   left: 0;
 }
 .menu-lines::before {
-  top: -6px;
+  top: -7px;
 }
 .menu-lines::after {
-  top: 6px;
-}
-.header-cta {
-  display: none;
+  top: 7px;
 }
 @media (max-width: 959px) {
+  .header-inner {
+    padding-left: 0;
+  }
+  .logo {
+    margin-left: 0.25rem;
+  }
   .global-nav {
     display: none;
     position: absolute;
@@ -407,8 +456,9 @@ textarea {
     right: 0;
     top: 100%;
     background: #fff;
+    color: var(--text);
     border-bottom: 1px solid var(--line);
-    padding: 0.5rem var(--gutter) 1.25rem;
+    padding: 0.25rem var(--gutter) 1rem;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
   }
   .global-nav.is-open {
@@ -421,36 +471,32 @@ textarea {
     border-bottom: 1px solid var(--line);
     font-weight: 700;
   }
-  .nav-reserve {
-    display: flex;
-    margin-top: 1rem;
-  }
 }
 @media (min-width: 960px) {
   .menu-toggle {
     display: none;
-  }
-  .header-cta {
-    display: inline-flex;
-  }
-  .site-header .container {
-    min-height: 72px;
   }
   .logo-main {
     font-size: 2.3rem;
   }
   .global-nav ul {
     display: flex;
-    gap: 1.75rem;
+    gap: 2rem;
+    margin-right: 1.5rem;
   }
   .global-nav a {
     font-size: 0.9375rem;
+    font-weight: 500;
     padding-block: 0.6rem;
-    background: linear-gradient(var(--text), var(--text)) left bottom / 0 1px no-repeat;
+    background: linear-gradient(currentColor, currentColor) left bottom / 0 1px no-repeat;
     transition: background-size 0.3s var(--ease);
   }
   .global-nav a:hover {
     background-size: 100% 1px;
+  }
+  .header-reserve {
+    min-width: 150px;
+    font-size: 0.9375rem;
   }
 }
 
