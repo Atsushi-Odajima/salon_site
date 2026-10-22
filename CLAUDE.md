@@ -10,7 +10,7 @@
 | 店名 | **hair & spa 凪（NAGI）**（追加指示により「hair salon grace」から変更）。予約番号は `NAG-YYYYMMDD-0001`（来店日＋その日の連番） |
 | 構成 | Vite + TypeScript（フレームワークなし）の3ページ：`/`・`/reserve/`・`/admin/`。静的HTMLとして出力されるため直接アクセス・再読み込み可 |
 | 配色 | 生成り `#f4efe6`／砂色 `#ddd1bd`／くすんだグリーン `#5d6b52`／墨 `#2a2724`。アクセントは苔色 `#3d4b36` の1色のみ。トークンは `src/styles/base.css` の `:root` |
-| 書体 | 見出し Shippori Mincho、本文 Zen Kaku Gothic New、英字補助 Cormorant Garamond（Google Fonts） |
+| 書体 | 見出し Shippori Mincho（500のみ）、英字補助 Cormorant Garamond（Google Fonts・非ブロッキング読込）。**本文は端末標準のゴシック体**（ヒラギノ／Noto Sans CJK 等）。Zen Kaku Gothic New は日本語の分割読み込みでレイアウト処理が増えるため不採用（フォント読込の見直しと合わせて Lighthouse 56→90） |
 | アイコン | **Iconoir**（MIT・線幅1.5）に統一。無いモチーフ（コーム・ドライヤー・パーマ・スパ・子ども連れ）は同じ線幅で自作。ブランドロゴは Simple Icons（CC0） |
 | 写真 | Unsplash の実写素材のみ（AI生成・Unsplash+ は不使用）。顔が分かる人物なし。出典は `CREDITS.md` |
 | 演出 | GSAP は Flip（ギャラリー並び替え）のみ遅延読み込み。Lenis は不使用。鏡の曇りは写真領域だけ・初回のみ・スキップ可 |

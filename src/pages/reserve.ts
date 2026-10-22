@@ -117,7 +117,7 @@ function revalidate() {
   if (staff && q.valid) {
     const why = staffCannotReason(staff, q.treatments);
     if (why) {
-      flash += `${staff.name}は${why}ため、指名を「指名なし」に戻しました。`;
+      flash += `指名を「指名なし」に戻しました（${staff.name}：${why}）。`;
       d.staffId = null;
     }
   }
@@ -695,7 +695,7 @@ asideEl.addEventListener(
   const staff = findStaff(d.staffId);
   const q = quote(d.sel);
   if (staff && q.valid && staffCannotReason(staff, q.treatments)) {
-    flash = `${staff.name}は${staffCannotReason(staff, q.treatments)}ため、「${findBase(d.sel.baseId)?.name}」の選択を外しました。メニューを選び直してください。`;
+    flash = `「${findBase(d.sel.baseId)?.name}」の選択を外しました（${staff.name}：${staffCannotReason(staff, q.treatments)}）。${staff.name}が担当できるメニューを選び直してください。`;
     d.sel = { baseId: null, optionIds: [] };
   } else if (staff) {
     flash = `${staff.name}を指名した状態で予約を始めます（指名料 ${yen(staff.nominationFee)}）。`;

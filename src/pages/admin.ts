@@ -68,13 +68,19 @@ function gate() {
   });
 }
 
-/** 初期表示の日付：指定がなければ、今日以降で予約のある最初の日 */
+/** 初期表示の日付：指定がなければ、今日から7日間で予約がいちばん多い営業日（同数なら早い日） */
 function pickInitialDate(): string {
   const p = new URLSearchParams(location.search).get('date');
   if (p && /^\d{4}-\d{2}-\d{2}$/.test(p)) return p;
   const today = jstNow().date;
-  const dates = [...new Set(list.filter((r) => r.status !== 'cancelled' && r.date >= today).map((r) => r.date))].sort();
-  return dates[0] ?? today;
+  const limit = addDays(today, 7);
+  const counts = new Map<string, number>();
+  for (const r of list) {
+    if (r.status === 'cancelled' || r.date < today || r.date > limit) continue;
+    counts.set(r.date, (counts.get(r.date) ?? 0) + 1);
+  }
+  const best = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))[0];
+  return best?.[0] ?? today;
 }
 
 const dayList = () =>
@@ -223,13 +229,13 @@ function render() {
       <div class="alert alert--demo">${icon('info-circle')}<p style="margin:0">この見本の予約は、お使いのブラウザ内に保存されます。別端末への共有や店舗への通知はありません。<br /><span class="note">体験用パスワードでの入室は、本番の認証機能ではありません。</span></p></div>
     </div>
     <div class="day-nav">
-      <button type="button" class="btn btn--ghost btn--sm" data-day="-1" aria-label="前の日">${icon('nav-arrow-left')}前日</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-day="-1">${icon('nav-arrow-left')}前日</button>
       <div class="day-pick">
         <label for="day-input" class="visually-hidden">表示する日付</label>
         <input id="day-input" type="date" value="${date}" />
         <p class="day-label" aria-live="polite">${formatDateJa(date)}${date === today ? '（今日）' : ''}${closed ? `<span class="day-closed">${closed.replace('です', '')}</span>` : ''}</p>
       </div>
-      <button type="button" class="btn btn--ghost btn--sm" data-day="1" aria-label="次の日">翌日${icon('nav-arrow-right')}</button>
+      <button type="button" class="btn btn--ghost btn--sm" data-day="1">翌日${icon('nav-arrow-right')}</button>
     </div>
     ${message ? `<div class="alert ${messageKind === 'error' ? 'alert--error' : ''}" role="status">${icon(messageKind === 'error' ? 'warning-circle' : 'check')}<p style="margin:0">${escapeHtml(message)}</p></div>` : ''}
     ${statsHtml(rs)}

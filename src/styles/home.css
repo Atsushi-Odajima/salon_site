@@ -477,7 +477,7 @@ section {
 .price-yen {
   font-family: var(--font-serif);
   font-size: 1.35rem;
-  font-weight: 600;
+  font-weight: 500;
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
@@ -933,7 +933,7 @@ section {
 }
 .staff-dl .fee {
   font-family: var(--font-serif);
-  font-weight: 600;
+  font-weight: 500;
   font-size: 1.25rem;
 }
 .tags {
@@ -1315,5 +1315,65 @@ section {
 @media (max-width: 599px) {
   .space-strip p .icon {
     display: none;
+  }
+}
+
+/* スマホ：シミュレーター閲覧中の合計帯（固定バーのすぐ上） */
+.sim-mini {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: var(--bar-h);
+  z-index: 45;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  min-height: 52px;
+  padding: 0.4rem var(--gutter);
+  background: var(--ink);
+  color: var(--white);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform 0.3s var(--ease), visibility 0.3s;
+}
+.sim-mini.is-shown {
+  transform: none;
+  visibility: visible;
+}
+.sim-mini b {
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
+.sim-mini small {
+  margin-left: 0.75rem;
+  font-size: 0.9375rem;
+}
+.sim-mini a {
+  color: var(--white);
+  font-size: 0.9375rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+}
+@media (max-width: 959px) {
+  /* 帯の分だけ下に余白を取り、選択肢が隠れたままにならないようにする */
+  .simulator-wrap {
+    padding-bottom: calc(clamp(3rem, 6vw, 5rem) + 52px);
+  }
+}
+@media (min-width: 960px) {
+  .sim-mini {
+    display: none;
+  }
+}
+
+@media (max-width: 799px) {
+  .staff-portrait {
+    width: 62%;
+    max-width: 260px;
+  }
+  .staff-card--assist .staff-portrait {
+    width: 40%;
   }
 }

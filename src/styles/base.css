@@ -21,7 +21,7 @@
   --focus: #1f5f8b;
 
   --font-serif: 'Shippori Mincho', 'Hiragino Mincho ProN', 'Yu Mincho', serif;
-  --font-sans: 'Zen Kaku Gothic New', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+  --font-sans: 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Noto Sans CJK JP', 'Yu Gothic UI', 'Yu Gothic', 'Meiryo', sans-serif;
   --font-latin: 'Cormorant Garamond', 'Times New Roman', serif;
 
   --fs-body: 1.0625rem;    /* 17px */
@@ -322,7 +322,7 @@ textarea {
   font-family: var(--font-serif);
   font-size: 1.9rem;
   line-height: 1;
-  font-weight: 600;
+  font-weight: 500;
 }
 .logo-text {
   display: flex;
@@ -332,7 +332,7 @@ textarea {
 .logo-text b {
   font-family: var(--font-latin);
   font-size: 1.15rem;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.12em;
 }
 .logo-text small {
@@ -563,7 +563,7 @@ dialog::backdrop {
 .summary-total .price {
   font-family: var(--font-serif);
   font-size: clamp(1.9rem, 1.5rem + 1.5vw, 2.4rem);
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 0.02em;
   font-variant-numeric: tabular-nums;
 }
@@ -700,6 +700,10 @@ dialog::backdrop {
   color: var(--danger);
   font-weight: 700;
   line-height: 1.5;
+}
+.choice-why.is-hint {
+  color: var(--ink-3);
+  font-weight: 500;
 }
 .choice-why:empty {
   display: none;

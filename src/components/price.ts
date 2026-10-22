@@ -174,6 +174,10 @@ export function initSimulator(root: HTMLElement) {
       <p class="visually-hidden" aria-live="polite" data-sum-live></p>
       <p class="sim-notice" data-sum-notice role="status"></p>
       <div class="sum-cta" data-sum-cta></div>
+    </div>
+    <div class="sim-mini" data-sim-mini aria-hidden="true">
+      <span><b data-mini-price>—</b><small data-mini-time></small></span>
+      <a href="#sim-sum-title" tabindex="-1">内訳を見る</a>
     </div>`;
 
   const body = summary.querySelector<HTMLElement>('[data-sum-body]')!;
@@ -182,14 +186,30 @@ export function initSimulator(root: HTMLElement) {
   const live = summary.querySelector<HTMLElement>('[data-sum-live]')!;
   const noticeEl = summary.querySelector<HTMLElement>('[data-sum-notice]')!;
   const cta = summary.querySelector<HTMLElement>('[data-sum-cta]')!;
+  const mini = summary.querySelector<HTMLElement>('[data-sim-mini]')!;
   let liveTimer = 0;
+
+  // スマホ：シミュレーターを見ている間だけ、画面下に合計の帯を出す（内訳が見えている間は隠す）
+  if ('IntersectionObserver' in window) {
+    let inSim = false;
+    let sumVisible = false;
+    const update = () => mini.classList.toggle('is-shown', inSim && !sumVisible);
+    new IntersectionObserver(([e]) => {
+      inSim = e.isIntersecting;
+      update();
+    }).observe(root.querySelector('.sim-steps')!);
+    new IntersectionObserver(([e]) => {
+      sumVisible = e.isIntersecting;
+      update();
+    }, { threshold: 0.3 }).observe(summary.querySelector('.summary')!);
+  }
 
   function render() {
     const q0 = quote(sel);
     // 選んだ担当が施術を担当できない場合は指名を外す
     const staff = findStaff(staffId);
     if (staff && q0.valid && staffCannotReason(staff, q0.treatments)) {
-      notice = `${staff.name}は${staffCannotReason(staff, q0.treatments)}ため、指名を外しました。`;
+      notice = `指名を外しました（${staff.name}：${staffCannotReason(staff, q0.treatments)}）。`;
       staffId = null;
     }
     const fee = findStaff(staffId)?.nominationFee ?? 0;
@@ -201,7 +221,10 @@ export function initSimulator(root: HTMLElement) {
       i.checked = sel.optionIds.includes(i.value);
       i.disabled = !!reason;
       i.closest('.choice')!.classList.toggle('is-disabled', !!reason);
-      document.getElementById(`why-${i.value}`)!.textContent = reason ? `選べません：${reason}` : '';
+      const why = document.getElementById(`why-${i.value}`)!;
+      // 未選択のときは注意ではなく案内として表示する
+      why.textContent = reason ? (sel.baseId ? `選べません：${reason}` : reason) : '';
+      why.classList.toggle('is-hint', !sel.baseId);
     });
     staffList.querySelectorAll<HTMLInputElement>('input').forEach((i) => {
       const s = findStaff(i.value);
@@ -223,6 +246,8 @@ export function initSimulator(root: HTMLElement) {
       cta.innerHTML = `<a class="btn btn--block" href="${href}">${icon('calendar')}このメニューで予約する</a>`;
     }
     animateNumber(priceEl, q.total);
+    mini.querySelector('[data-mini-price]')!.textContent = q.valid ? yen(q.total) : '基本メニューを選んでください';
+    mini.querySelector('[data-mini-time]')!.textContent = q.valid ? `約${formatMinutes(q.minutes)}` : '';
     noticeEl.textContent = notice;
     notice = '';
     // 読み上げは最終結果だけ（連続通知しない）

@@ -1,6 +1,7 @@
 import { defineConfig, type Plugin } from 'vite';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import { brandIcon, icon, type BrandName, type IconName } from './src/lib/icons';
 
 /** HTML 内の <!--partial:name--> を partials/name.html の内容に置き換える */
 function partials(): Plugin {
@@ -14,8 +15,25 @@ function partials(): Plugin {
   };
 }
 
+/** <span data-icon="phone"></span> にビルド時に SVG を埋め込む（後から差し込むと表示がずれるため） */
+function inlineIcons(): Plugin {
+  return {
+    name: 'inline-icons',
+    transformIndexHtml: {
+      order: 'post',
+      handler(html) {
+        return html.replace(/<(span|button|a)([^>]*?)\sdata-(icon|brand)="([\w-]+)"([^>]*)>/g, (_all, tag: string, pre: string, kind: string, name: string, post: string) => {
+          const size = Number(/data-icon-size="(\d+)"/.exec(pre + post)?.[1] ?? 24);
+          const svg = kind === 'icon' ? icon(name as IconName, { size }) : brandIcon(name as BrandName, size);
+          return `<${tag}${pre} data-${kind}="${name}"${post} data-icon-done="1">${svg}`;
+        });
+      },
+    },
+  };
+}
+
 export default defineConfig({
-  plugins: [partials()],
+  plugins: [partials(), inlineIcons()],
   build: {
     rollupOptions: {
       input: {

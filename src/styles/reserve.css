@@ -72,8 +72,12 @@
   gap: 1.5rem;
   align-items: start;
 }
+.reserve-main {
+  min-height: 80vh; /* JS で描画するまでフッターが動かないように */
+}
 .reserve-aside {
   order: -1;
+  min-height: 52px;
 }
 @media (min-width: 960px) {
   .reserve-grid {
@@ -419,7 +423,7 @@
   font-family: var(--font-latin);
   font-size: clamp(1.6rem, 1.2rem + 2vw, 2.3rem);
   letter-spacing: 0.06em;
-  font-weight: 600;
+  font-weight: 500;
 }
 .done-actions {
   display: flex;

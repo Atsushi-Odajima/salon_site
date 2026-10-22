@@ -13,6 +13,7 @@
 }
 .admin {
   padding-block: 1.5rem 4rem;
+  min-height: 80vh;
 }
 .admin-title {
   font-size: var(--fs-h3);
