@@ -416,7 +416,6 @@ textarea {
   color: inherit;
   cursor: pointer;
   order: -1;
-  margin-left: calc(-1 * var(--gutter) + 4px);
 }
 .menu-lines,
 .menu-lines::before,

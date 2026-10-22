@@ -6,7 +6,8 @@
     <meta name="description" content="美容室ホームページの制作見本です（架空店舗 hair salon grace）。モデル写真とヘアカタログで髪型・髪色の魅力を伝え、料金シミュレーター、スタイリスト指名からの予約、店側の予約管理画面まで体験できます。" />
     <meta property="og:title" content="【制作見本】hair salon grace｜美容室ホームページの見本" />
     <meta property="og:description" content="モデル写真とヘアカタログが主役の、白を基調にした美容室ホームページの制作見本（架空店舗）。料金シミュレーター・指名予約・予約管理まで体験できます。" />
-<!--slot:preload-->
+    <link rel="preload" as="image" href="/images/v3/hero-curly-gray.webp" imagesrcset="/images/v3/hero-curly-gray-sm.webp 800w, /images/v3/hero-curly-gray.webp 2000w" imagesizes="100vw" media="(min-width: 960px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/v3/hero-sp-black-long.webp" imagesrcset="/images/v3/hero-sp-black-long-sm.webp 533w, /images/v3/hero-sp-black-long.webp 1333w" imagesizes="100vw" media="(max-width: 959px)" fetchpriority="high" />
   </head>
   <body class="page-home">
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -16,7 +17,14 @@
     <main id="main">
       <!-- 1. ヒーロー：画面いっぱいのモデル写真にブランド名を重ねる -->
       <section class="hero" aria-label="hair salon grace" data-hero>
-<!--slot:hero-->
+        <picture class="hero-photo">
+          <source media="(max-width: 959px)" srcset="/images/v3/hero-sp-black-long-sm.webp 533w, /images/v3/hero-sp-black-long.webp 1333w" sizes="100vw" width="1333" height="2000" />
+          <img src="/images/v3/hero-curly-gray.webp" srcset="/images/v3/hero-curly-gray-sm.webp 800w, /images/v3/hero-curly-gray.webp 2000w" sizes="100vw" width="2000" height="1335" alt="グレーの背景の前で、ブラウンのカーリーロングヘアを片側に流した女性（スタイルイメージ）" fetchpriority="high" />
+        </picture>
+        <div class="hero-brand">
+          <p class="hero-logo"><span class="sub">hair salon</span> <span class="main">grace</span></p>
+          <p class="copy">髪から、私らしく。</p>
+        </div>
       </section>
       <script>
         // ヒーローの上だけヘッダーを透明・白文字にする（高さは変えない）
@@ -37,7 +45,36 @@
             <h2 class="sec-title" id="catalog-title"><span class="en">HAIR CATALOG</span><span class="ja">ヘアカタログ</span></h2>
           </div>
           <ul class="catalog-grid">
-<!--slot:catalog-->
+            <li>
+              <a class="cat-tile" href="#style-list" data-cat-link="color" aria-label="ヘアカラーのスタイル一覧を見る">
+                <img src="/images/v3/cat-color-balayage-waves-sm.webp" srcset="/images/v3/cat-color-balayage-waves-sm.webp 533w, /images/v3/cat-color-balayage-waves.webp 933w" sizes="(min-width: 900px) 36vw, 100vw" width="933" height="1400" alt="ブラウンから明るいベージュへのグラデーションカラーのウェーブロングの女性" style="object-position:50% 35%" loading="lazy" decoding="async" />
+                <span class="cat-label" aria-hidden="true"><span class="en">COLOR</span><span class="ja">ヘアカラー</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="cat-tile" href="#style-list" data-cat-link="long" aria-label="ロングのスタイル一覧を見る">
+                <img src="/images/v3/cat-long-straight-brown-sm.webp" srcset="/images/v3/cat-long-straight-brown-sm.webp 600w, /images/v3/cat-long-straight-brown.webp 1050w" sizes="(min-width: 900px) 26vw, 50vw" width="1050" height="1400" alt="明るい背景の前で、ブラウンのストレートロングヘアの女性が正面を向いている" style="object-position:50% 30%" loading="lazy" decoding="async" />
+                <span class="cat-label" aria-hidden="true"><span class="en">LONG</span><span class="ja">ロング</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="cat-tile" href="#style-list" data-cat-link="bob_medium" aria-label="ボブ・ミディアムのスタイル一覧を見る">
+                <img src="/images/v3/cat-bob-wavy-dark-sm.webp" srcset="/images/v3/cat-bob-wavy-dark-sm.webp 534w, /images/v3/cat-bob-wavy-dark.webp 934w" sizes="(min-width: 900px) 26vw, 50vw" width="934" height="1400" alt="白い背景の前で、ダークブラウンのウェーブボブの女性が横を向いている" style="object-position:45% 25%" loading="lazy" decoding="async" />
+                <span class="cat-label" aria-hidden="true"><span class="en">BOB・MEDIUM</span><span class="ja">ボブ・ミディアム</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="cat-tile" href="#style-list" data-cat-link="short" aria-label="ショートのスタイル一覧を見る">
+                <img src="/images/v3/cat-short-pixie-auburn-sm.webp" srcset="/images/v3/cat-short-pixie-auburn-sm.webp 534w, /images/v3/cat-short-pixie-auburn.webp 935w" sizes="(min-width: 900px) 26vw, 50vw" width="935" height="1400" alt="明るい背景の前で、ブラウンのベリーショートの女性が正面を向いている" style="object-position:50% 22%" loading="lazy" decoding="async" />
+                <span class="cat-label" aria-hidden="true"><span class="en">SHORT</span><span class="ja">ショート</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="cat-tile" href="#style-list" data-cat-link="arrange" aria-label="ヘアアレンジのスタイル一覧を見る">
+                <img src="/images/v3/cat-arrange-braid-halfup-sm.webp" srcset="/images/v3/cat-arrange-braid-halfup-sm.webp 600w, /images/v3/cat-arrange-braid-halfup.webp 1050w" sizes="(min-width: 900px) 26vw, 50vw" width="1050" height="1400" alt="後ろ姿で、ベージュ系ストレートロングの髪を後ろでねじり編みにまとめたアレンジ" style="object-position:50% 45%" loading="lazy" decoding="async" />
+                <span class="cat-label" aria-hidden="true"><span class="en">ARRANGE</span><span class="ja">ヘアアレンジ</span></span>
+              </a>
+            </li>
           </ul>
           <p class="note catalog-note">掲載写真は素材サイトのスタイルイメージです。当店の施術実績・スタッフの作品ではありません。写真を選ぶと、そのカテゴリのスタイル一覧を表示します。</p>
 
@@ -64,7 +101,24 @@
             <p class="sec-lead">写真のスタイルに近づけたいときは、カウンセリングで画像を見せてください。似合わせ方をご相談しながら決めます。</p>
           </div>
           <ol class="pickup-list">
-<!--slot:pickup-->
+            <li>
+              <figure class="photo"><img src="/images/v3/pick-layer-curtain-bangs-sm.webp" srcset="/images/v3/pick-layer-curtain-bangs-sm.webp 560w, /images/v3/pick-layer-curtain-bangs.webp 980w" sizes="(min-width: 900px) 30vw, 92vw" width="980" height="1400" alt="ブロンドの長め前髪と顔まわりのレイヤーが分かる女性の横顔" style="object-position:45% 35%" loading="lazy" decoding="async" /></figure>
+              <span class="pickup-no">STYLE 01</span>
+              <h3>顔まわりを楽しむレイヤー</h3>
+              <p>長めの前髪を左右に分け、顔まわりに沿って段を入れたスタイル。横顔に髪がふわりと沿い、毛先の動きでやわらかな印象に見えます。</p>
+            </li>
+            <li>
+              <figure class="photo"><img src="/images/v3/pick-color-ash-beige-waves-sm.webp" srcset="/images/v3/pick-color-ash-beige-waves-sm.webp 800w, /images/v3/pick-color-ash-beige-waves.webp 1400w" sizes="(min-width: 900px) 30vw, 92vw" width="1400" height="933" alt="グレーの背景の前で、アッシュベージュのウェーブヘアの女性が横を向いている" style="object-position:62% 40%" loading="lazy" decoding="async" /></figure>
+              <span class="pickup-no">STYLE 02</span>
+              <h3>やわらかな色味のカラー</h3>
+              <p>落ち着いたアッシュベージュを、肩下のしっかりとしたウェーブで。巻いた髪の重なりで、色の濃淡が分かります。</p>
+            </li>
+            <li>
+              <figure class="photo"><img src="/images/v3/pick-bob-blonde-fringe-sm.webp" srcset="/images/v3/pick-bob-blonde-fringe-sm.webp 533w, /images/v3/pick-bob-blonde-fringe.webp 933w" sizes="(min-width: 900px) 30vw, 92vw" width="933" height="1400" alt="明るい背景の前で、前髪ありのブロンドボブの女性の横顔" style="object-position:60% 40%" loading="lazy" decoding="async" /></figure>
+              <span class="pickup-no">STYLE 03</span>
+              <h3>シルエットがきれいなボブ</h3>
+              <p>あごから肩上の長さに前髪を合わせたボブ。横から見たときの、すっきりとしたラインが特徴です。</p>
+            </li>
           </ol>
           <p class="note catalog-note">掲載写真は素材サイトのスタイルイメージです（当店の施術実績ではありません）。</p>
         </div>
@@ -144,7 +198,9 @@
             </div>
             <div>
               <ul class="salon-photos" aria-label="店内のイメージ">
-<!--slot:salon-->
+                <li><figure class="photo"><img src="/images/interior-chair-900.webp" width="600" height="900" alt="木目の鏡台と楕円の鏡の前に置かれたスタイリングチェア" loading="lazy" decoding="async" /></figure><p>セット面 4席</p></li>
+                <li><figure class="photo"><img src="/images/interior-shampoo-900.webp" width="900" height="600" alt="白いシャンプーボウルが並ぶシャンプー台" loading="lazy" decoding="async" /></figure><p>シャンプー台 2台</p></li>
+                <li><figure class="photo"><img src="/images/v2/finish-stylist-sm.webp" srcset="/images/v2/finish-stylist-sm.webp 480w, /images/v2/finish-stylist.webp 800w" sizes="(min-width: 900px) 18vw, 30vw" width="800" height="1200" alt="スタイリストがキャラメルブラウンのウェーブヘアを手で整えている仕上げの様子" loading="lazy" decoding="async" /></figure><p>仕上げまで丁寧に</p></li>
               </ul>
               <p class="note photo-credit-note">※店内写真は素材サイトのイメージ写真です。</p>
             </div>

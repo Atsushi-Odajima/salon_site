@@ -74,9 +74,9 @@
   border-top: 0;
   /* 透明ヘッダーの下に写真を潜り込ませる（ヘッダーの高さ分だけ上へ） */
   margin-top: calc(-1 * var(--header-h));
-  height: clamp(420px, 70svh, 760px);
+  height: clamp(480px, 72svh, 760px);
   overflow: hidden;
-  background: #222;
+  background: #e9e9e9;
   color: #fff;
 }
 @media (min-width: 960px) {
@@ -94,11 +94,11 @@
 }
 .hero-photo img {
   object-fit: cover;
-  object-position: var(--hero-pos-sp, 50% 30%);
+  object-position: 50% 45%; /* スマホ：顔の上の壁にロゴ、毛先まで残す */
 }
 @media (min-width: 960px) {
   .hero-photo img {
-    object-position: var(--hero-pos-pc, 50% 30%);
+    object-position: 50% 28%;
   }
 }
 /* 文字の背後だけをごく薄く暗くする（写真全体は暗くしない） */
@@ -106,7 +106,6 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: var(--hero-shade, linear-gradient(to top, rgba(0, 0, 0, 0.32), rgba(0, 0, 0, 0) 38%));
   pointer-events: none;
 }
 .hero-brand {
@@ -114,8 +113,6 @@
   z-index: 1;
   left: var(--gutter);
   right: var(--gutter);
-  bottom: clamp(1.25rem, 4vw, 3.5rem);
-  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.28);
 }
 .hero-brand .sub {
   display: block;
@@ -128,22 +125,59 @@
   display: block;
   font-family: var(--font-latin);
   font-weight: 500;
-  font-size: clamp(4.5rem, 2.5rem + 9vw, 10rem);
   line-height: 0.85;
   letter-spacing: 0.04em;
 }
 .hero-brand .copy {
-  margin: 0.9rem 0 0 0.2em;
+  margin: 1.5rem 0 0 0.2em;
   font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
   font-weight: 700;
   letter-spacing: 0.16em;
 }
-@media (min-width: 960px) {
+/* スマホ：白い壁の上部（顔より上）に黒文字で配置。写真は暗くしない */
+@media (max-width: 959px) {
+  .hero-photo::after {
+    display: none;
+  }
   .hero-brand {
-    left: var(--hero-text-left, auto);
-    right: var(--hero-text-right, max(var(--gutter), calc((100vw - var(--maxw)) / 2)));
-    bottom: var(--hero-text-bottom, 12%);
-    text-align: var(--hero-text-align, left);
+    top: calc(var(--header-h) + 2svh);
+    color: var(--text);
+  }
+  .hero-brand .sub {
+    font-size: 0.85rem;
+  }
+  /* 画面の高さが低い端末でも、ロゴが顔にかからない大きさにする */
+  .hero-brand .main {
+    font-size: min(24vw, 11svh, 7rem);
+  }
+  .hero-brand .copy {
+    margin-top: 0.9rem;
+    font-size: 0.95rem;
+  }
+  .page-home .site-header.is-overlay {
+    color: var(--text);
+  }
+
+  .is-overlay .logo,
+  .is-overlay .global-nav > ul a {
+    text-shadow: none;
+  }
+}
+/* PC：グレー背景の左下（髪の輪郭より左）に白文字。文字の背後だけ左下をわずかに暗くする */
+@media (min-width: 960px) {
+  .hero-photo::after {
+    background: radial-gradient(ellipse 45% 55% at 0% 100%, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0) 70%),
+      linear-gradient(to bottom, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0) 18%);
+  }
+  .hero-brand {
+    left: clamp(2rem, 4.5vw, 5rem);
+    right: auto;
+    bottom: 11%;
+    color: #fff;
+    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+  }
+  .hero-brand .main {
+    font-size: clamp(6rem, 8.4vw, 8.5rem);
   }
 }
 
@@ -1087,4 +1121,25 @@
 }
 .salon-grid p {
   margin: 0 0 0.9rem;
+}
+.hero-logo {
+  margin: 0;
+}
+
+/* ヒーロー上では写真の大きなロゴを主役にし、ヘッダーのロゴは隠す（スクロール後に表示） */
+.page-home .site-header.is-overlay .logo {
+  visibility: hidden;
+}
+
+/* スマホの小さなタイルは英語ラベルだけにして、髪を隠さない（日本語はリンクの読み上げ名にある） */
+@media (max-width: 599px) {
+  .catalog-grid li:not(:first-child) .cat-label .ja {
+    display: none;
+  }
+  .cat-label {
+    padding: 0.3rem 0.55rem;
+  }
+  .cat-label .en {
+    font-size: 0.8125rem;
+  }
 }
