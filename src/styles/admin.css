@@ -1,0 +1,382 @@
+/* =========================================================
+   予約管理（デモ）
+   ========================================================= */
+.admin-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+}
+.admin-header .container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 64px;
+}
+.admin {
+  padding-block: 1.5rem 4rem;
+}
+.admin-title {
+  font-size: var(--fs-h3);
+  margin: 0 0 0.75rem;
+}
+.admin-top .alert {
+  margin-bottom: 1rem;
+}
+.admin > .alert {
+  margin-bottom: 1rem;
+}
+
+/* パスワード入口 */
+.gate {
+  max-width: 34rem;
+  margin: 2rem auto;
+}
+.gate h1 {
+  font-size: var(--fs-h3);
+}
+.gate .alert {
+  margin: 1rem 0 1.5rem;
+}
+.pw {
+  font-family: ui-monospace, monospace;
+  font-size: 1.25rem;
+  letter-spacing: 0.1em;
+}
+
+/* 日付切り替え */
+.day-nav {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.day-pick {
+  text-align: center;
+  min-width: 0;
+}
+@media (max-width: 480px) {
+  .day-nav .btn {
+    padding-inline: 0.6rem;
+    font-size: 0.9375rem;
+  }
+}
+.day-pick input {
+  min-height: 48px;
+  padding: 0.4rem 0.6rem;
+  border: 1.5px solid #8f8473;
+  border-radius: var(--radius);
+  background: var(--white);
+  width: 100%;
+  max-width: 13rem;
+  min-width: 0;
+}
+.day-label {
+  margin: 0.25rem 0 0;
+  font-weight: 700;
+}
+.day-closed {
+  display: inline-block;
+  margin-left: 0.5rem;
+  padding: 0 0.6rem;
+  border-radius: 999px;
+  background: var(--sand);
+  font-size: 0.875rem;
+}
+.stats {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+@media (min-width: 700px) {
+  .stats {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.stats li {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 0.6rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+}
+.stats span {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+.stats b {
+  font-size: 1.4rem;
+  font-variant-numeric: tabular-nums;
+}
+.stats small {
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-left: 0.15em;
+}
+
+/* ステータス */
+.status {
+  display: inline-block;
+  padding: 0 0.6rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.7;
+}
+.status--confirmed {
+  background: var(--moss);
+  color: var(--white);
+}
+.status--visited {
+  background: #d9e3f0;
+  color: #1f3f63;
+}
+.status--cancelled {
+  background: #ece6dd;
+  color: #5c544b;
+  text-decoration: line-through;
+}
+.status-btns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.75rem;
+}
+.chip {
+  min-height: 48px;
+  padding: 0 1rem;
+  border-radius: 999px;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  cursor: pointer;
+  font-weight: 500;
+}
+.chip[aria-pressed='true'] {
+  background: var(--moss);
+  border-color: var(--moss);
+  color: var(--white);
+  font-weight: 700;
+}
+.chip--cancelled[aria-pressed='true'] {
+  background: #5c544b;
+  border-color: #5c544b;
+}
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+/* PC タイムライン */
+.timeline {
+  display: grid;
+  grid-template-columns: 64px repeat(2, minmax(0, 1fr)) minmax(120px, 0.45fr);
+  gap: 0 8px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  padding: 0.75rem 0.75rem 1rem;
+  margin-bottom: 1rem;
+}
+.tl-col-head {
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-bottom: 1.5px solid var(--ink);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+.tl-col-head span {
+  font-size: 0.8125rem;
+  color: var(--ink-3);
+}
+.tl-body {
+  position: relative;
+}
+.tl-col .tl-body {
+  background: repeating-linear-gradient(180deg, transparent 0 44px, var(--paper-2) 44px 45px);
+  background-size: 100% 45px;
+}
+.tl-hour {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 0;
+}
+.tl-hour span {
+  position: absolute;
+  top: -0.7em;
+  left: 0;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+}
+.tl-break,
+.tl-off {
+  position: absolute;
+  left: 0;
+  right: 0;
+  background: repeating-linear-gradient(135deg, #e8e1d4 0 6px, #f1ece3 6px 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  border-radius: 4px;
+}
+.tl-off {
+  top: 0;
+  bottom: 0;
+  font-weight: 700;
+  font-size: 1rem;
+  z-index: 1;
+}
+.tl-block {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 0;
+  border-left: 4px solid var(--moss);
+  background: #e6ebdd;
+  text-align: left;
+  overflow: hidden;
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1.35;
+}
+.tl-block:hover {
+  box-shadow: 0 4px 14px rgba(42, 39, 36, 0.15);
+}
+.status-bg--visited {
+  background: #e3eaf3;
+  border-left-color: #3b6894;
+}
+.status-bg--cancelled {
+  background: repeating-linear-gradient(135deg, #f4efe6 0 6px, #ece6dd 6px 12px);
+  border-left-color: #9a9084;
+  color: var(--ink-2);
+  z-index: 1;
+}
+.status-bg--cancelled .tl-name {
+  text-decoration: line-through;
+}
+.tl-block.is-highlight,
+.bk-card.is-highlight {
+  outline: 3px solid #b8860b;
+  outline-offset: 1px;
+}
+.tl-time {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.tl-name {
+  font-weight: 700;
+}
+.tl-menu {
+  color: var(--ink-2);
+}
+.tl-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: center;
+  margin-top: 2px;
+}
+.nom {
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  border: 1px solid var(--leaf);
+  font-size: 0.75rem;
+  color: var(--moss);
+  background: var(--white);
+}
+.tl-yen {
+  font-weight: 700;
+}
+.tl-spa {
+  position: absolute;
+  left: 2px;
+  right: 2px;
+  background: #ddd1bd;
+  border-radius: 6px;
+  padding: 4px 6px;
+  font-size: 0.8125rem;
+}
+
+/* スマホ一覧 */
+.bk-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+  display: grid;
+  gap: 0.75rem;
+}
+.bk-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--moss);
+  border-radius: var(--radius);
+  padding: 0.9rem 1rem;
+}
+.status-line--visited {
+  border-left-color: #3b6894;
+}
+.status-line--cancelled {
+  border-left-color: #9a9084;
+  background: #f7f3ec;
+}
+.bk-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bk-time {
+  font-weight: 700;
+  font-size: 1.125rem;
+  font-variant-numeric: tabular-nums;
+}
+.bk-name {
+  margin: 0.2rem 0 0;
+  font-weight: 700;
+}
+.bk-menu {
+  margin: 0;
+  color: var(--ink-2);
+}
+.bk-dl {
+  margin: 0.5rem 0 0;
+  font-size: 0.9375rem;
+}
+.bk-dl div {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.15rem 0;
+}
+.bk-dl dt {
+  color: var(--ink-3);
+  min-width: 3em;
+}
+.bk-dl dd {
+  margin: 0;
+}
+.admin-foot {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+#booking-dialog .summary-lines {
+  margin-top: 0.75rem;
+}
