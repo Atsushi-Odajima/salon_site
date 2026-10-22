@@ -11,35 +11,46 @@
   - Unsplash+（有料）ではないこと／AI生成の表示がないこと
   - 髪型の輪郭・毛先・髪色が分かり、髪にピントが合っていること
   - モデルの正面・斜め・横顔も使用（前髪・顔まわり・毛先・髪色が分かる構図）。モデルを架空スタッフとして紹介しない
-  - 実在店舗の看板・店名・ロゴが写っていないこと（`interior-chair-900.webp` は鏡台上の販促物2か所をぼかし処理。`hero-waves-caramel` などは写り込んだ商品ボトル・人物を切り抜き）
-- 加工：WebP 変換・リサイズ・トリミングのみ（髪色の加工はしていない）。`v3/*.webp` は長辺1400〜2000px、`v3/*-sm.webp` は長辺800px、`v2/*-sm.webp` は長辺720px（スマホ・一覧用）
-- 掲載写真はスタイルのイメージで、当店（架空）の施術実績・スタッフの作品ではありません。ぱくたそ・Pexels の素材は使用していません
+  - 実在店舗の看板・店名・ロゴが写っていないこと（`interior-chair-900.webp` は鏡台上の販促物2か所をぼかし処理）
+- 加工：WebP 変換・リサイズ・トリミングのみ（髪色の加工はしていない）。`v4/*.webp` は長辺1400〜2000px、`v4/*-sm.webp` は長辺800px、`v2/*-sm.webp` は長辺720px（スマホ・一覧用）。`public/og.jpg` は `v4/hero-pc-short-bob-side-part` を切り抜き、欧文ロゴと「髪から、私らしく。」を重ねたもの
+- 掲載写真はスタイルのイメージで、当店（架空）の施術実績・スタッフの作品ではありません
+- **日本人モデルについて（2026-10-22）**：依頼により、外国人モデルの写真を東アジア系のモデル写真に差し替えました。Unsplash で撮影地・タグなどから日本で撮影された／日本人と確認できたのは下表の「日本との関連」欄に記載がある3点（メンズ2点・まとめ髪）のみで、女性モデルのほとんどは**国籍・撮影地の記載がなく、外見から選んだもの**です。「日本人モデル」とは表記していません
 
-| ファイル | 内容 | 撮影者 | 元ページ | 使用箇所 |
-|---|---|---|---|---|
-| `v3/hero-curly-gray.webp`（＋`-sm`） | グレーの背景の前で、ブラウンのカーリーロングヘアを片側に流した女性 | Zoran Borojevic（投稿者。ページ内に「Ines」の表記あり） | <https://unsplash.com/photos/woman-in-white-long-sleeve-shirt-s55Di5cdiSM> | ヒーロー（PC）・OGP画像 |
-| `v3/hero-sp-black-long.webp`（＋`-sm`） | 白い壁の前で、黒髪のロングヘアの女性が目を閉じて顔を上げている | Valeria Lendel | <https://unsplash.com/photos/a-woman-with-long-black-hair-standing-in-front-of-a-wall-0b_7r_dNjFs> | ヒーロー（スマホ） |
-| `v3/cat-color-balayage-waves.webp`（＋`-sm`） | ブラウンから明るいベージュへのグラデーションカラーのウェーブロングの女性 | OmAr Taha | <https://unsplash.com/photos/a-woman-with-long-hair-wearing-a-coat--v4dPq1jZJA> | HAIR CATALOG（大・COLOR）・スタイル一覧 |
-| `v3/cat-long-straight-brown.webp`（＋`-sm`） | 明るい背景の前で、ブラウンのストレートロングヘアの女性が正面を向いている | Zoran Borojevic | <https://unsplash.com/photos/woman-in-black-leather-jacket-4BG2yKyCaWg> | HAIR CATALOG（LONG）・スタイル一覧 |
-| `v3/cat-bob-wavy-dark.webp`（＋`-sm`） | 白い背景の前で、ダークブラウンのウェーブボブの女性が横を向いている | Alex Larrondo | <https://unsplash.com/photos/woman-with-dark-wavy-hair-wearing-a-black-turtleneck-Hoc8u4HJO7w> | HAIR CATALOG（BOB・MEDIUM）・スタイル一覧 |
-| `v3/cat-short-pixie-auburn.webp`（＋`-sm`） | 明るい背景の前で、ブラウンのベリーショートの女性が正面を向いている | Alistair Cowin | <https://unsplash.com/photos/woman-with-brown-hair-and-red-lipstick-2I-fXHM7OCQ> | HAIR CATALOG（SHORT）・スタイル一覧 |
-| `v3/cat-arrange-braid-halfup.webp`（＋`-sm`） | 後ろ姿で、ベージュ系ストレートロングの髪を後ろでねじり編みにまとめたアレンジ | farida ganina | <https://unsplash.com/photos/woman-in-black-long-sleeve-shirt-OVIF-r1IVcc> | HAIR CATALOG（ARRANGE）・スタイル一覧 |
-| `v3/pick-layer-curtain-bangs.webp`（＋`-sm`） | ブロンドの長め前髪と顔まわりのレイヤーが分かる女性の横顔 | Alexander Krivitskiy | <https://unsplash.com/photos/woman-in-white-tank-top-S4FiGYM9oOc> | PICK UP STYLE 01 |
-| `v3/pick-color-ash-beige-waves.webp`（＋`-sm`） | グレーの背景の前で、アッシュベージュのウェーブヘアの女性が横を向いている | James Hughes | <https://unsplash.com/photos/woman-in-black-shirt-with-blonde-hair-RczKPBSiu1s> | PICK UP STYLE 02 |
-| `v3/pick-bob-blonde-fringe.webp`（＋`-sm`） | 明るい背景の前で、前髪ありのブロンドボブの女性の横顔 | Mathilde Langevin | <https://unsplash.com/photos/woman-in-black-turtleneck-shirt-yuahvgxIXjE> | PICK UP STYLE 03 |
-| `v3/hero-blonde-waves.webp`（＋`-sm`） | 明るいグレーの背景の前で、ブロンドのウェーブロングヘアの女性が正面を向いている | Giorgio Trovato | <https://unsplash.com/photos/a-woman-with-long-blonde-hair-wearing-a-black-shirt-VzusBjHlKM8> | スタイル一覧 |
-| `v2/bob-black-round.webp`（＋`-sm`） | 生成り色の背景で、うつむき加減の横顔と黒髪の丸みのあるボブ。毛先はゆるく内巻き | Suhyeon Choi | <https://unsplash.com/photos/woman-looking-down-VfOw1B-y_rQ> | スタイル一覧 |
-| `v2/bob-inner-color.webp`（＋`-sm`） | 白背景で斜め後ろから見た、毛先に明るいブロンドのインナーカラーを入れたブラウンのボブ | Dwi Agus Prasetiyo | <https://unsplash.com/photos/a-person-looking-at-the-camera-EMeWJb_RuoQ> | スタイル一覧 |
-| `v2/curls-short.webp`（＋`-sm`） | 淡いブルーグレー背景で後ろから見た、細かなカールが立体的なショートヘア | Alexander Grey | <https://unsplash.com/photos/woman-wearing-white-strapless-top-_e_GZVswkHQ> | スタイル一覧 |
-| `v2/updo-braid-blonde.webp`（＋`-sm`） | かすみ草とパールの髪飾りを添えた、編み込み入りのブロンドのルーズなアップスタイル | Lydia Turner | <https://unsplash.com/photos/woman-with-brown-hair-tied-N1VKaGNwRYc> | スタイル一覧 |
-| `v2/finish-stylist.webp`（＋`-sm`） | 白いサロン店内で、スタイリストの手がキャラメルブラウンのウェーブヘアを整えている後ろ姿 | Ramón Benitez | <https://unsplash.com/photos/wkWTdIwJemY> | SALON（仕上げ） |
-| `interior-chair-900.webp` | 木目の鏡台と楕円ミラー前のスタイリングチェア（縦構図、人物なし） | Tile Merchant Ireland | <https://unsplash.com/photos/a-hair-salon-with-chairs-and-mirrors-DUvovc88OfE> | SALON（店内） |
-| `interior-shampoo-900.webp` | 白いシャンプーボウルと黒いシャンプー台が並ぶモノクロ写真（人物なし） | Giorgio Trovato | <https://unsplash.com/photos/a-row-of-black-and-white-chairs-next-to-a-sink-k5xtu6DApUk> | SALON（店内） |
+| ファイル | 内容 | 撮影者 | 元ページ | 日本との関連 | 使用箇所 |
+|---|---|---|---|---|---|
+| `v4/hero-pc-short-bob-side-part.webp`（＋`-sm`） | 深めのサイドパートから耳にかけたショートボブ。黒髪のツヤと、あご下で内側に収まる丸みのあるシルエットが分かります。 | Jk Imperial | <https://unsplash.com/photos/a-woman-with-black-hair-is-looking-at-the-camera--opOVG_Z4jA> | 記載なし（外見のみで判断） | ヒーロー（PC）・OGP画像・スタイル一覧 |
+| `v4/hero-sp-bob-blunt-fringe.webp`（＋`-sm`） | 目にかかる長さの前髪と、あごより下で揃えた切りっぱなしのボブ。黒髪の直線的な毛先が分かります。 | Zhanna Rinatova | <https://unsplash.com/photos/a-woman-with-a-short-hair-and-a-white-tank-top-KvPz2Jv_SZ0> | 記載なし（外見のみで判断） | ヒーロー（スマホ） |
+| `v4/cat-long-dark-waves.webp`（＋`-sm`） | 腰に届く長さの黒髪に、全体にゆるいウェーブ。横顔から毛先までの長さと動きが分かります。 | Silas Hao | <https://unsplash.com/photos/woman-with-red-lipstick-and-black-hair-TWEoISk5WoI> | 記載なし（外見のみで判断） | HAIR CATALOG（大・LONG）・スタイル一覧 |
+| `v4/cat-bob-wavy-medium.webp`（＋`-sm`） | 肩上の長さのボブに、ランダムなウェーブと外ハネの毛先。顔まわりの毛流れが分かります。 | ling hua | <https://unsplash.com/photos/a-woman-with-a-scarf-around-her-neck-CWxahMbXlfs> | 記載なし（外見のみで判断） | PICK UP STYLE 03 |
+| `v4/cat-short-mens-mash.webp`（＋`-sm`） | 眉にかかる前髪と、毛先に動きのある丸みのあるマッシュショート。白背景でシルエットが分かります。 | Takashi Miyazaki | <https://unsplash.com/photos/man-in-white-crew-neck-shirt-iCvqnJgMchs> | タグ japanese 等 | HAIR CATALOG（SHORT）・スタイル一覧 |
+| `v4/cat-arrange-kanzashi-updo.webp`（＋`-sm`） | 後頭部の低い位置にまとめたアップスタイルに、花の髪飾りを添えたもの。後ろ姿でまとめ方と飾りの配置が分かります。 | Genri Kura | <https://unsplash.com/photos/a-woman-with-a-flower-in-her-hair-3ow9GhfwysU> | 撮影地 Japan・タグ japan | HAIR CATALOG（ARRANGE）・スタイル一覧 |
+| `v4/cat-color-copper-brown-waves.webp`（＋`-sm`） | 赤みのある明るいブラウンの髪色に、胸下までのゆるいウェーブ。逆光で毛先まで色味が分かります。 | Tan Duong | <https://unsplash.com/photos/woman-with-long-hair-at-waterfront-0ZOb8d31yNY> | 記載なし（外見のみで判断） | HAIR CATALOG（COLOR）・スタイル一覧 |
+| `v4/pick-layer-face-framing-long.webp`（＋`-sm`） | 長めの前髪から顔まわりに段差をつけたロング。頬にかかる毛束と、胸下までの毛先が分かります。 | Yunming Wang | <https://unsplash.com/photos/a-woman-with-long-black-hair-standing-in-front-of-a-building-G9f4Enb8XVM> | 記載なし（外見のみで判断） | PICK UP STYLE 01 |
+| `v4/pick-color-brown-bob.webp`（＋`-sm`） | 根元から毛先に向かって明るくなるブラウン系の色味のボブ。あご下で揃えた毛先と前下がりの形が分かります。 | Phong Duong | <https://unsplash.com/photos/woman-with-bob-haircut-and-lipstick-x4NP8d2-shs> | 記載なし（外見のみで判断） | PICK UP STYLE 02 |
+| `v4/pick-bob-sleek-black.webp`（＋`-sm`） | センターパートで、あご下に揃えたワンレングスのボブ。毛先の直線とストレートな質感が分かります。 | Ilyas Bolatov | <https://unsplash.com/photos/woman-wearing-black-top-6ZW7hRz7DE0> | 記載なし（外見のみで判断） | HAIR CATALOG（BOB・MEDIUM）・スタイル一覧 |
+| `v4/extra-long-soft-curls.webp`（＋`-sm`） | 胸下まであるロングに、中間から毛先にかけて大きめのカール。毛先の動きが分かります。 | Vivian K | <https://unsplash.com/photos/a-woman-with-long-hair-Hmqj7JOXJvE> | 記載なし（外見のみで判断） | スタイル一覧 |
+| `v4/extra-medium-brown-waves.webp`（＋`-sm`） | 肩につく長さのブラウンの髪に、全体のウェーブ。うつむき加減で毛先の動きが分かります。 | 光术 山影 | <https://unsplash.com/photos/young-woman-with-short-hair-in-a-white-dress-outdoors-uA04tMbRNOk> | 記載なし（外見のみで判断） | スタイル一覧 |
+| `v4/extra-short-mens-center-part.webp`（＋`-sm`） | 眉下の長さの前髪をセンターで分けたメンズショート。白背景で全体の形が分かります。 | 花見 瀬田 (Hanami Seta) | <https://unsplash.com/photos/a-man-standing-in-front-of-a-white-background-_q1F356xF48> | 撮影地 Japan・タグ japan | スタイル一覧 |
+| `v2/bob-black-round.webp`（＋`-sm`） | 生成り色の背景で、うつむき加減の横顔と黒髪の丸みのあるボブ。毛先はゆるく内巻き | Suhyeon Choi | <https://unsplash.com/photos/woman-looking-down-VfOw1B-y_rQ> | 記載なし（外見のみで判断） | スタイル一覧 |
+| `interior-chair-900.webp` | 木目の鏡台と楕円ミラー前のスタイリングチェア（縦構図、人物なし） | Tile Merchant Ireland | <https://unsplash.com/photos/a-hair-salon-with-chairs-and-mirrors-DUvovc88OfE> | ― | SALON（店内） |
+| `interior-shampoo-900.webp` | 白いシャンプーボウルと黒いシャンプー台が並ぶモノクロ写真（人物なし） | Giorgio Trovato | <https://unsplash.com/photos/a-row-of-black-and-white-chairs-next-to-a-sink-k5xtu6DApUk> | ― | SALON（店内） |
+
+### 検討して使わなかった素材（2026-10-22）
+
+「日本人・20代・後ろ姿のヘアカラー仕上がり写真（ホットペッパービューティーのスタイル写真のようなもの）」を国内の無料素材サイトで探しましたが、次の理由で今回は使っていません。
+
+| サイト | 結果 |
+|---|---|
+| ホットペッパービューティー・実在サロンのサイト | 各サロン・撮影者・モデルに権利があり、無断転載になるため使用しない |
+| GIRLY DROP（<https://girlydrop.com/policy>） | 規約で「写真と関連する業種での商用利用（例：美容院がヘアスタイル写真を使う）」を控えるよう求めているため使用しない |
+| ぱくたそ（<https://www.pakutaso.com/userpolicy.html>） | 後ろ姿の写真はあるが、夕日の逆光・浴衣・アレンジ中など「カラーの仕上がり見本」として使える写真が見つからなかった |
+| 写真AC など会員制サイト | ダウンロードに会員ログインが必要なため、作業環境から取得できない |
 
 ### デザイン変更で外した写真
 
 - 2回目のデザインで外したもの：カーテン・植物・タオル・小物の写真、屋外の後ろ姿、髪がぶれた写真、強い色の写真、施術途中の手元
-- 今回（モデル写真主体）で外したもの：前回の後ろ姿中心のスタイル写真（`style-01〜12` の残り、`v2` の一部）。モデルの正面・横顔で前髪や顔まわりまで分かる写真に入れ替えたため
+- 3回目（モデル写真主体）で外したもの：前回の後ろ姿中心のスタイル写真
+- 今回（東アジア系モデルへの差し替え）で外したもの：`v3/*`（欧米系モデル11点）と `v2` の4点（インナーカラーボブ・カールショート・ブロンドのアップ・仕上げ中の後ろ姿）
 
 ## アイコン
 

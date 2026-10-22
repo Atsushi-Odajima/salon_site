@@ -29,14 +29,14 @@ export interface StylePhoto {
 export const catLabel = (s: StylePhoto) => s.cats.map((c) => CATEGORY_LABEL[c].ja).join('・');
 
 export const STYLES: StylePhoto[] = [
-  { file: 'v3/cat-color-balayage-waves.webp', sm: 'v3/cat-color-balayage-waves-sm.webp', w: 933, h: 1400, cats: ['color', 'long'], title: 'ベージュのグラデーションカラー', alt: 'ブラウンから明るいベージュへのグラデーションカラーのウェーブロングの女性', pos: '50% 40%' },
-  { file: 'v3/cat-long-straight-brown.webp', sm: 'v3/cat-long-straight-brown-sm.webp', w: 1050, h: 1400, cats: ['long'], title: 'ツヤのあるストレートロング', alt: '明るい背景の前で、ブラウンのストレートロングヘアの女性が正面を向いている', pos: '50% 40%' },
-  { file: 'v3/hero-blonde-waves.webp', sm: 'v3/hero-blonde-waves-sm.webp', w: 2000, h: 1333, cats: ['long', 'color'], title: 'ブロンドのウェーブロング', alt: '明るいグレーの背景の前で、ブロンドのウェーブロングヘアの女性が正面を向いている', pos: '50% 40%' },
-  { file: 'v3/cat-bob-wavy-dark.webp', sm: 'v3/cat-bob-wavy-dark-sm.webp', w: 934, h: 1400, cats: ['bob_medium'], title: 'ウェーブボブ', alt: '白い背景の前で、ダークブラウンのウェーブボブの女性が横を向いている', pos: '45% 25%' },
+  { file: 'v4/cat-long-dark-waves.webp', sm: 'v4/cat-long-dark-waves-sm.webp', w: 923, h: 1400, cats: ['long'], title: 'ゆるウェーブのロング', alt: 'ウェーブのかかった黒髪ロングの女性の横顔', pos: '45% 35%' },
+  { file: 'v4/extra-long-soft-curls.webp', sm: 'v4/extra-long-soft-curls-sm.webp', w: 933, h: 1400, cats: ['long'], title: 'カールのロング', alt: 'カールのかかった黒髪ロングの女性', pos: '50% 40%' },
+  { file: 'v4/cat-color-copper-brown-waves.webp', sm: 'v4/cat-color-copper-brown-waves-sm.webp', w: 1049, h: 1400, cats: ['color', 'long'], title: '明るいブラウンのロングウェーブ', alt: '明るいブラウンのウェーブロングの女性', pos: '50% 35%' },
+  { file: 'v4/pick-bob-sleek-black.webp', sm: 'v4/pick-bob-sleek-black-sm.webp', w: 1050, h: 1400, cats: ['bob_medium'], title: 'センターパートのワンレンボブ', alt: '黒髪のワンレンボブの女性のポートレート', pos: '45% 30%' },
   { file: 'v2/bob-black-round.webp', sm: 'v2/bob-black-round-sm.webp', w: 889, h: 1200, cats: ['bob_medium'], title: '丸みのある黒髪ボブ', alt: '肩上の長さで毛先を内側に丸めた、黒髪のボブの横顔', pos: 'center' },
-  { file: 'v2/bob-inner-color.webp', sm: 'v2/bob-inner-color-sm.webp', w: 900, h: 1200, cats: ['bob_medium', 'color'], title: 'ブラウンボブ×インナーカラー', alt: 'ブラウンのボブの内側に明るいブロンドを入れたインナーカラー（後ろ姿）', pos: 'center' },
-  { file: 'v3/cat-short-pixie-auburn.webp', sm: 'v3/cat-short-pixie-auburn-sm.webp', w: 935, h: 1400, cats: ['short'], title: 'ベリーショート', alt: '明るい背景の前で、ブラウンのベリーショートの女性が正面を向いている', pos: '50% 30%' },
-  { file: 'v2/curls-short.webp', sm: 'v2/curls-short-sm.webp', w: 900, h: 1200, cats: ['short'], title: 'ふんわりカールのショート', alt: '後ろから見た、細かなカールが立体的に出たショートヘア', pos: 'center' },
-  { file: 'v3/cat-arrange-braid-halfup.webp', sm: 'v3/cat-arrange-braid-halfup-sm.webp', w: 1050, h: 1400, cats: ['arrange'], title: 'ハーフアップ編みおろし', alt: '後ろ姿で、ベージュ系ストレートロングの髪を後ろでねじり編みにまとめたアレンジ', pos: '50% 40%' },
-  { file: 'v2/updo-braid-blonde.webp', sm: 'v2/updo-braid-blonde-sm.webp', w: 900, h: 1200, cats: ['arrange'], title: '編み込みのルーズアップ', alt: '編み込みを入れてゆるくまとめ、小花とパールのピンを飾ったアップスタイル', pos: 'center' },
+  { file: 'v4/extra-medium-brown-waves.webp', sm: 'v4/extra-medium-brown-waves-sm.webp', w: 933, h: 1400, cats: ['bob_medium', 'color'], title: 'ブラウンのウェーブミディアム', alt: 'ブラウンのウェーブヘアの女性がうつむいているポートレート', pos: '50% 30%' },
+  { file: 'v4/hero-pc-short-bob-side-part.webp', sm: 'v4/hero-pc-short-bob-side-part-sm.webp', w: 2000, h: 1138, cats: ['short', 'bob_medium'], title: 'サイドパートのショートボブ', alt: '黒髪のショートボブの女性の横顔寄りのポートレート', pos: '42% 40%' },
+  { file: 'v4/cat-short-mens-mash.webp', sm: 'v4/cat-short-mens-mash-sm.webp', w: 1400, h: 933, cats: ['short'], title: 'メンズ マッシュショート', alt: '白い背景の前の、マッシュショートの男性のポートレート', pos: '62% 35%' },
+  { file: 'v4/extra-short-mens-center-part.webp', sm: 'v4/extra-short-mens-center-part-sm.webp', w: 1045, h: 1400, cats: ['short'], title: 'メンズ センターパートショート', alt: '白い背景の前に立つ、センターパートの短髪の男性', pos: '50% 15%' },
+  { file: 'v4/cat-arrange-kanzashi-updo.webp', sm: 'v4/cat-arrange-kanzashi-updo-sm.webp', w: 1049, h: 1400, cats: ['arrange'], title: '髪飾りをあしらったまとめ髪', alt: '花の髪飾りをつけたまとめ髪の後ろ姿', pos: '50% 35%' },
 ];

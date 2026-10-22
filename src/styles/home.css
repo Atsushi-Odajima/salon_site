@@ -94,30 +94,29 @@
 }
 .hero-photo img {
   object-fit: cover;
-  object-position: 50% 45%; /* スマホ：顔の上の壁にロゴ、毛先まで残す */
+  object-position: 50% 70%; /* スマホ：頭の上は少し削り、毛先と肩の下の余白を残す */
 }
 @media (min-width: 960px) {
   .hero-photo img {
-    object-position: 50% 28%;
+    object-position: 50% 35%;
   }
 }
-/* 文字の背後だけをごく薄く暗くする（写真全体は暗くしない） */
 .hero-photo::after {
   content: '';
   position: absolute;
   inset: 0;
   pointer-events: none;
 }
+/* 写真の背景が明るいクリーム色のため、ロゴ・コピーは黒文字。写真は暗くしない */
 .hero-brand {
   position: absolute;
   z-index: 1;
-  left: var(--gutter);
-  right: var(--gutter);
+  color: var(--text);
 }
 .hero-brand .sub {
   display: block;
   font-family: var(--font-latin);
-  font-size: clamp(0.95rem, 0.8rem + 0.5vw, 1.35rem);
+  font-size: clamp(0.85rem, 0.75rem + 0.45vw, 1.25rem);
   letter-spacing: 0.42em;
   margin: 0 0 0.1rem 0.2em;
 }
@@ -129,55 +128,56 @@
   letter-spacing: 0.04em;
 }
 .hero-brand .copy {
-  margin: 1.5rem 0 0 0.2em;
-  font-size: clamp(1rem, 0.9rem + 0.4vw, 1.25rem);
+  margin: 1.1rem 0 0 0.2em;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.2rem);
   font-weight: 700;
   letter-spacing: 0.16em;
 }
-/* スマホ：白い壁の上部（顔より上）に黒文字で配置。写真は暗くしない */
+.page-home .site-header.is-overlay {
+  color: var(--text);
+}
+.is-overlay .logo,
+.is-overlay .global-nav > ul a {
+  text-shadow: none;
+}
+/* スマホ：写真の上には顔・手・毛先にかからない余白がないため、ロゴとコピーは写真のすぐ下の白い帯に置く
+   （スクロール前に写真とブランド名の両方が見える） */
 @media (max-width: 959px) {
-  .hero-photo::after {
-    display: none;
+  .page-home main > .hero {
+    height: auto;
+    background: #fff;
+  }
+  .hero-photo {
+    position: relative;
+    display: block;
+    height: clamp(360px, 62svh, 600px);
+    overflow: hidden;
+  }
+  .hero-photo img {
+    object-position: 50% 38%;
   }
   .hero-brand {
-    top: calc(var(--header-h) + 2svh);
-    color: var(--text);
+    position: static;
+    padding: 0.9rem var(--gutter) 1.1rem;
   }
   .hero-brand .sub {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
-  /* 画面の高さが低い端末でも、ロゴが顔にかからない大きさにする */
   .hero-brand .main {
-    font-size: min(24vw, 11svh, 7rem);
+    font-size: min(17vw, 4.5rem);
   }
   .hero-brand .copy {
-    margin-top: 0.9rem;
-    font-size: 0.95rem;
-  }
-  .page-home .site-header.is-overlay {
-    color: var(--text);
-  }
-
-  .is-overlay .logo,
-  .is-overlay .global-nav > ul a {
-    text-shadow: none;
+    margin-top: 0.5rem;
   }
 }
-/* PC：グレー背景の左下（髪の輪郭より左）に白文字。文字の背後だけ左下をわずかに暗くする */
+/* PC：左の壁の、ボブの毛先より下の位置に配置（髪の輪郭・顔にかからない） */
 @media (min-width: 960px) {
-  .hero-photo::after {
-    background: radial-gradient(ellipse 45% 55% at 0% 100%, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0) 70%),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0) 18%);
-  }
   .hero-brand {
-    left: clamp(2rem, 4.5vw, 5rem);
-    right: auto;
-    bottom: 11%;
-    color: #fff;
-    text-shadow: 0 2px 18px rgba(0, 0, 0, 0.25);
+    left: clamp(2rem, 3.5vw, 4rem);
+    bottom: 5%;
   }
   .hero-brand .main {
-    font-size: clamp(6rem, 8.4vw, 8.5rem);
+    font-size: clamp(5rem, 6.6vw, 7rem);
   }
 }
 
@@ -845,6 +845,9 @@
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 0.5rem;
+}
+.salon-photos--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .salon-photos .photo {
   aspect-ratio: 3 / 4;
