@@ -136,6 +136,17 @@
 .page-home .site-header.is-overlay {
   color: var(--text);
 }
+/* PC：ナビが髪の上に重なっても読めるよう、ヘッダーの高さだけ薄い白のグラデーションを敷く（写真全体は暗くしない） */
+@media (min-width: 960px) {
+  .page-home .site-header.is-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 -48px;
+    z-index: -1;
+    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5) 55%, rgba(255, 255, 255, 0));
+    pointer-events: none;
+  }
+}
 .is-overlay .logo,
 .is-overlay .global-nav > ul a {
   text-shadow: none;
