@@ -26,7 +26,7 @@ export function initGallery(section: HTMLElement) {
     (s, i) => `
       <li class="g-item" data-length="${s.length}" data-mood="${s.mood}" data-flip-id="g${i}" style="--ratio:${s.w / s.h}">
         <button type="button" class="g-open" data-index="${i}" aria-label="${s.title}（${LENGTH_LABEL[s.length]}・${MOOD_LABEL[s.mood]}）を拡大する">
-          <img src="/images/${s.file}" width="${s.w}" height="${s.h}" alt="${s.alt}" loading="lazy" decoding="async" />
+          <img src="/images/${s.file.replace(/\.webp$/, '') + (s.file.startsWith('v2/') ? '-sm' : '')}.webp" width="${s.w}" height="${s.h}" alt="${s.alt}" loading="lazy" decoding="async"${s.pos ? ` style="object-position:${s.pos}"` : ''} />
         </button>
         <p class="g-cap">${s.title}<span>${LENGTH_LABEL[s.length]}・${MOOD_LABEL[s.mood]}</span></p>
       </li>`,

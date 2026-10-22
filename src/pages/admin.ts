@@ -38,7 +38,7 @@ const entered = () => {
 function gate() {
   root.innerHTML = `
     <section class="gate" aria-labelledby="gate-title">
-      <h1 id="gate-title" class="serif">店側の予約管理画面（デモ）</h1>
+      <h1 id="gate-title" class="admin-title">店側の予約管理画面（デモ）</h1>
       <p>オーナー様に「予約管理もできます」をご覧いただくための体験用画面です。</p>
       <div class="alert alert--demo">${icon('lock')}<p style="margin:0">体験用パスワード：<b class="pw">demo</b><br /><span class="note">※画面に表示している体験用の入口です。本番の認証機能ではありません。</span></p></div>
       <form class="gate-form" data-gate novalidate>
@@ -225,7 +225,7 @@ function render() {
   const closed = closedReason(date);
   root.innerHTML = `
     <div class="admin-top">
-      <h1 class="serif admin-title">予約管理</h1>
+      <h1 class="admin-title">予約管理</h1>
       <div class="alert alert--demo">${icon('info-circle')}<p style="margin:0">この見本の予約は、お使いのブラウザ内に保存されます。別端末への共有や店舗への通知はありません。<br /><span class="note">体験用パスワードでの入室は、本番の認証機能ではありません。</span></p></div>
     </div>
     <div class="day-nav">

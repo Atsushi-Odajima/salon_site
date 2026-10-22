@@ -6,7 +6,7 @@ import { loadChoice, reserveUrl } from './common';
 const WEEK = ['日', '月', '火', '水', '木', '金', '土'];
 
 export function renderStaff(root: HTMLElement) {
-  root.innerHTML = STAFF.map((s, i) => {
+  root.innerHTML = STAFF.map((s) => {
     const off = s.week.map((w, d) => (w || d === 1 ? null : WEEK[d])).filter(Boolean);
     const shift = s.week.find(Boolean)!;
     const menus = s.bookable
@@ -14,14 +14,18 @@ export function renderStaff(root: HTMLElement) {
       : [];
     const cannot = s.bookable ? BASE_MENUS.filter((m) => staffCannotReason(s, m.includes)).map((m) => m.name) : [];
     return `
-    <article class="staff-card ${s.bookable ? '' : 'staff-card--assist'} ${i % 2 ? 'is-reverse' : ''}" aria-labelledby="staff-${s.id}">
-      <figure class="staff-portrait">
-        <span class="initials" aria-hidden="true">${s.initials}</span>
-        <figcaption>スタッフ写真（見本）</figcaption>
-      </figure>
+    <article class="staff-card ${s.bookable ? '' : 'staff-card--assist'}" aria-labelledby="staff-${s.id}">
+      <div class="staff-head">
+        <figure class="staff-portrait">
+          <span class="initials" aria-hidden="true">${s.initials}</span>
+          <figcaption>スタッフ写真（見本）</figcaption>
+        </figure>
+        <div>
+          <p class="staff-role">${s.role}</p>
+          <h3 id="staff-${s.id}">${s.name}<small>${s.kana}</small></h3>
+        </div>
+      </div>
       <div class="staff-body">
-        <p class="staff-role">${s.role}</p>
-        <h3 id="staff-${s.id}" class="serif">${s.name}<small>${s.kana}</small></h3>
         <dl class="staff-dl">
           <div><dt>得意なスタイル</dt><dd><ul class="tags">${s.specialties.map((t) => `<li>${t}</li>`).join('')}</ul></dd></div>
           <div><dt>大切にしていること</dt><dd>${s.approach}</dd></div>

@@ -1,8 +1,17 @@
 /* =========================================================
    予約管理（デモ）
    ========================================================= */
+.admin-label {
+  margin: 0 auto 0 0;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  color: var(--text-2);
+}
+.admin-header .logo {
+  margin-right: 0.5rem;
+}
 .admin-header {
-  background: var(--white);
+  background: var(--surface);
   border-bottom: 1px solid var(--line);
 }
 .admin-header .container {
@@ -17,6 +26,8 @@
   min-height: 80vh;
 }
 .admin-title {
+  font-family: var(--font-sans);
+  font-weight: 700;
   font-size: var(--fs-h3);
   margin: 0 0 0.75rem;
 }
@@ -65,9 +76,9 @@
 .day-pick input {
   min-height: 48px;
   padding: 0.4rem 0.6rem;
-  border: 1.5px solid #8f8473;
+  border: 1.5px solid #8a8a8a;
   border-radius: var(--radius);
-  background: var(--white);
+  background: var(--surface);
   width: 100%;
   max-width: 13rem;
   min-width: 0;
@@ -81,7 +92,7 @@
   margin-left: 0.5rem;
   padding: 0 0.6rem;
   border-radius: 999px;
-  background: var(--sand);
+  background: var(--bg-3);
   font-size: 0.875rem;
 }
 .stats {
@@ -98,7 +109,7 @@
   }
 }
 .stats li {
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 0.6rem 0.9rem;
@@ -107,7 +118,7 @@
 }
 .stats span {
   font-size: 0.875rem;
-  color: var(--ink-2);
+  color: var(--text-2);
 }
 .stats b {
   overflow-wrap: anywhere;
@@ -130,16 +141,16 @@
   line-height: 1.7;
 }
 .status--confirmed {
-  background: var(--moss);
-  color: var(--white);
+  background: var(--primary);
+  color: var(--surface);
 }
 .status--visited {
   background: #d9e3f0;
   color: #1f3f63;
 }
 .status--cancelled {
-  background: #ece6dd;
-  color: #5c544b;
+  background: #eeeeee;
+  color: #555555;
   text-decoration: line-through;
 }
 .status-btns {
@@ -153,19 +164,19 @@
   padding: 0 1rem;
   border-radius: 999px;
   border: 1.5px solid var(--line);
-  background: var(--white);
+  background: var(--surface);
   cursor: pointer;
   font-weight: 500;
 }
 .chip[aria-pressed='true'] {
-  background: var(--moss);
-  border-color: var(--moss);
-  color: var(--white);
+  background: var(--primary);
+  border-color: var(--primary);
+  color: var(--surface);
   font-weight: 700;
 }
 .chip--cancelled[aria-pressed='true'] {
-  background: #5c544b;
-  border-color: #5c544b;
+  background: #555555;
+  border-color: #555555;
 }
 .filter-chips {
   display: flex;
@@ -179,7 +190,7 @@
   display: grid;
   grid-template-columns: 64px repeat(2, minmax(0, 1fr)) minmax(120px, 0.45fr);
   gap: 0 8px;
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-lg);
   padding: 0.75rem 0.75rem 1rem;
@@ -190,19 +201,19 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border-bottom: 1.5px solid var(--ink);
+  border-bottom: 1.5px solid var(--text);
   margin-bottom: 8px;
   line-height: 1.35;
 }
 .tl-col-head span {
   font-size: 0.8125rem;
-  color: var(--ink-3);
+  color: var(--text-3);
 }
 .tl-body {
   position: relative;
 }
 .tl-col .tl-body {
-  background: repeating-linear-gradient(180deg, transparent 0 44px, var(--paper-2) 44px 45px);
+  background: repeating-linear-gradient(180deg, transparent 0 44px, var(--bg-2) 44px 45px);
   background-size: 100% 45px;
 }
 .tl-hour {
@@ -216,7 +227,7 @@
   top: -0.7em;
   left: 0;
   font-size: 0.8125rem;
-  color: var(--ink-2);
+  color: var(--text-2);
   font-variant-numeric: tabular-nums;
 }
 .tl-break,
@@ -224,12 +235,12 @@
   position: absolute;
   left: 0;
   right: 0;
-  background: repeating-linear-gradient(135deg, #e8e1d4 0 6px, #f1ece3 6px 12px);
+  background: repeating-linear-gradient(135deg, #ececec 0 6px, #f6f6f6 6px 12px);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 0.8125rem;
-  color: var(--ink-2);
+  color: var(--text-2);
   border-radius: 4px;
 }
 .tl-off {
@@ -251,8 +262,8 @@
   padding: 6px 8px;
   border-radius: 6px;
   border: 0;
-  border-left: 4px solid var(--moss);
-  background: #e6ebdd;
+  border-left: 4px solid var(--primary);
+  background: #f2f2f2;
   text-align: left;
   overflow: hidden;
   cursor: pointer;
@@ -260,16 +271,16 @@
   line-height: 1.35;
 }
 .tl-block:hover {
-  box-shadow: 0 4px 14px rgba(42, 39, 36, 0.15);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 }
 .status-bg--visited {
   background: #e3eaf3;
   border-left-color: #3b6894;
 }
 .status-bg--cancelled {
-  background: repeating-linear-gradient(135deg, #f4efe6 0 6px, #ece6dd 6px 12px);
-  border-left-color: #9a9084;
-  color: var(--ink-2);
+  background: repeating-linear-gradient(135deg, #fafafa 0 6px, #efefef 6px 12px);
+  border-left-color: #9a9a9a;
+  color: var(--text-2);
   z-index: 1;
 }
 .status-bg--cancelled .tl-name {
@@ -288,7 +299,7 @@
   font-weight: 700;
 }
 .tl-menu {
-  color: var(--ink-2);
+  color: var(--text-2);
 }
 .tl-foot {
   display: flex;
@@ -300,10 +311,10 @@
 .nom {
   padding: 0 0.45rem;
   border-radius: 999px;
-  border: 1px solid var(--leaf);
+  border: 1px solid var(--text-2);
   font-size: 0.75rem;
-  color: var(--moss);
-  background: var(--white);
+  color: var(--primary);
+  background: var(--surface);
 }
 .tl-yen {
   font-weight: 700;
@@ -312,7 +323,7 @@
   position: absolute;
   left: 2px;
   right: 2px;
-  background: #ddd1bd;
+  background: #e6e6e6;
   border-radius: 6px;
   padding: 4px 6px;
   font-size: 0.8125rem;
@@ -327,9 +338,9 @@
   gap: 0.75rem;
 }
 .bk-card {
-  background: var(--white);
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-left: 5px solid var(--moss);
+  border-left: 5px solid var(--primary);
   border-radius: var(--radius);
   padding: 0.9rem 1rem;
 }
@@ -337,8 +348,8 @@
   border-left-color: #3b6894;
 }
 .status-line--cancelled {
-  border-left-color: #9a9084;
-  background: #f7f3ec;
+  border-left-color: #9a9a9a;
+  background: #f7f7f7;
 }
 .bk-top {
   display: flex;
@@ -356,7 +367,7 @@
 }
 .bk-menu {
   margin: 0;
-  color: var(--ink-2);
+  color: var(--text-2);
 }
 .bk-dl {
   margin: 0.5rem 0 0;
@@ -368,7 +379,7 @@
   padding: 0.15rem 0;
 }
 .bk-dl dt {
-  color: var(--ink-3);
+  color: var(--text-3);
   min-width: 3em;
 }
 .bk-dl dd {

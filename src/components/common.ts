@@ -110,6 +110,41 @@ function setupReserveLinks() {
   });
 }
 
+/** 「制作見本について」ダイアログ */
+function setupAboutDialog() {
+  const dialog = document.getElementById('about-dialog') as HTMLDialogElement | null;
+  if (!dialog) return;
+  let opener: HTMLElement | null = null;
+  document.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest<HTMLElement>('[data-about-demo]');
+    if (!btn) return;
+    opener = btn;
+    dialog.showModal();
+  });
+  setupDialogClose(dialog, () => opener?.focus());
+}
+
+/** スマホのメニュー開閉（Esc・リンク選択で閉じる） */
+function setupMenuToggle() {
+  const btn = document.querySelector<HTMLButtonElement>('[data-menu-toggle]');
+  const nav = document.querySelector<HTMLElement>('[data-nav]');
+  if (!btn || !nav) return;
+  const set = (open: boolean) => {
+    btn.setAttribute('aria-expanded', String(open));
+    nav.classList.toggle('is-open', open);
+  };
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+  nav.addEventListener('click', (e) => {
+    if ((e.target as HTMLElement).closest('a')) set(false);
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+      set(false);
+      btn.focus();
+    }
+  });
+}
+
 function setupHeader() {
   const header = document.querySelector<HTMLElement>('[data-header]');
   if (!header) return;
@@ -121,6 +156,8 @@ function setupHeader() {
 export function initCommon() {
   hydrateIcons();
   setupDemoDialog();
+  setupAboutDialog();
+  setupMenuToggle();
   setupReserveLinks();
   setupHeader();
 }

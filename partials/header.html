@@ -1,18 +1,23 @@
     <header class="site-header" data-header>
       <div class="container">
         <a class="logo" href="/">
-          <span class="logo-mark" aria-hidden="true">凪</span>
-          <span class="logo-text"><b>hair &amp; spa NAGI</b><small>ヘア アンド スパ なぎ</small></span>
+          <span class="logo-sub">hair salon</span>
+          <span class="logo-main">grace</span>
         </a>
-        <nav class="global-nav" aria-label="メインメニュー">
+        <nav class="global-nav" id="global-nav" aria-label="メインメニュー" data-nav>
           <ul>
+            <li><a href="/#styles-pickup">スタイル</a></li>
             <li><a href="/#menu">メニュー・料金</a></li>
-            <li><a href="/#staff">スタッフ</a></li>
-            <li><a href="/#styles">スタイル</a></li>
+            <li><a href="/#staff">スタイリスト</a></li>
+            <li><a href="/#salon">サロン紹介</a></li>
             <li><a href="/#first">初めての方へ</a></li>
             <li><a href="/#access">アクセス</a></li>
           </ul>
+          <a class="btn btn--sm nav-reserve" href="/reserve/" data-reserve-link>Web予約</a>
         </nav>
-        <a class="btn btn--sm header-cta" href="/reserve/" data-reserve-link>予約する</a>
+        <a class="btn btn--sm header-cta" href="/reserve/" data-reserve-link>Web予約</a>
+        <button type="button" class="menu-toggle" aria-expanded="false" aria-controls="global-nav" data-menu-toggle>
+          <span class="menu-lines" aria-hidden="true"></span>メニュー
+        </button>
       </div>
     </header>

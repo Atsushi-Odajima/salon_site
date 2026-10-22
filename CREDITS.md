@@ -1,41 +1,49 @@
 # CREDITS — 素材の出典と利用条件
 
-このサイトは**架空店舗の制作見本**です。掲載写真は素材サイトのイメージ写真で、当店（架空）の施術実績・スタッフの作品・実際の店内ではありません。
+このサイトは**架空店舗「hair salon grace」の制作見本**です。掲載写真は素材サイトのスタイルイメージで、当店（架空）の施術実績・スタッフの作品・実際の店内ではありません。
 
-## 写真（すべて Unsplash・実写）
+## 写真（すべて Unsplash の実写）
 
 - 利用条件：[Unsplash License](https://unsplash.com/license)（確認日：2026-10-22）
   - 商用・非商用とも無料で利用可、許可不要。クレジット表記は任意（本ファイルで記載）
   - 写真をそのまま販売すること、Unsplash と競合するサービスを作るために集めることは不可
-- 選定時の確認事項（各写真ページを確認）
+- 選定時の確認（各写真の元ページと画像そのものを確認）
   - Unsplash+（有料）ではないこと／AI生成の表示がないこと
-  - 顔がはっきり写った人物がいないこと（後ろ姿・髪・手元のみ）
-  - 実在店舗の看板・店名・ロゴが写っていないこと（`interior-chair.webp` は鏡台上の販促物2か所をぼかし処理）
-- 加工：WebP 変換、長辺1600px（ギャラリーは1000px）にリサイズ。`*-720.webp` / `*-900.webp` は同じ写真の縮小版
-- ぱくたそ・Pexels の素材は使用していません
+  - 髪型の輪郭・毛先・髪色が分かり、髪にピントが合っていること
+  - 顔がはっきり分かる正面の人物写真は使わない（後ろ姿・横向き・斜め後ろ・手元）
+  - 実在店舗の看板・店名・ロゴが写っていないこと（`interior-chair-900.webp` は鏡台上の販促物2か所をぼかし処理。`hero-waves-caramel` などは写り込んだ商品ボトル・人物を切り抜き）
+- 加工：WebP 変換・リサイズ・トリミング。`v2/*.webp` は長辺1200〜1600px、`v2/*-sm.webp` は長辺720px（スマホ・一覧用）
+- 掲載写真はスタイルのイメージで、当店（架空）の施術実績・スタッフの作品ではありません。ぱくたそ・Pexels の素材は使用していません
 
-| ファイル | 内容 | 撮影者 | 素材サイト | 元ページ | 使用箇所 |
-|---|---|---|---|---|---|
-| `interior-chair.webp` | 木目の鏡台と楕円ミラー前のスタイリングチェア（縦構図、人物なし） | Tile Merchant Ireland | Unsplash | <https://unsplash.com/photos/a-hair-salon-with-chairs-and-mirrors-DUvovc88OfE> | 店内のイメージ（販促物2か所をぼかし処理） |
-| `interior-shampoo.webp` | 白いシャンプーボウルと黒いシャンプー台が並ぶモノクロ写真（人物なし） | Giorgio Trovato | Unsplash | <https://unsplash.com/photos/a-row-of-black-and-white-chairs-next-to-a-sink-k5xtu6DApUk> | 店内のイメージ |
-| `spa.webp` | 木のデッキに積まれた白いロールタオル、自然光と影（人物なし） | iridial | Unsplash | <https://unsplash.com/photos/stack-of-white-rolled-towels-0Qv4fUvlSrI> | 店内のイメージ（個室スパ） |
-| `tools.webp` | リネン調の布の上に置かれた木製コームとシュシュ・ヘアクリップ | Svitlanka Dlinnaya | Unsplash | <https://unsplash.com/photos/wooden-comb-with-decorative-hair-clips-and-scrunchies-9h2cHBQy5WY> | コンセプト |
-| `hands.webp` | 濡れた黒髪をコームとハサミでカットするスタイリストの手元（お客様は後ろ姿、顔は写っていない） | Farhad Ibrahimzade | Unsplash | <https://unsplash.com/photos/a-woman-cutting-another-womans-hair-with-scissors-V2HDOQTJh3o> | 初めての方へ |
-| `plant-light.webp` | 夕方の光で壁に映る窓枠の影と観葉植物の葉 | Robert Katzki | Unsplash | <https://unsplash.com/photos/green-leafed-plant-near-beige-wall-GvxNOKF_9fM> | コンセプト（plant-light-900.webp は縮小版） |
-| `concept.webp` | 木漏れ日の葉の影が映るリネンのカーテン | GUY GRANDJEAN | Unsplash | <https://unsplash.com/photos/sunlight-shines-through-sheer-curtains-with-leaf-shadows-wi-78W-29D8> | ヒーロー（スマホ用 concept-720.webp も同じ写真を縮小） |
-| `style-01.webp` | 後ろから見たメンズショート（白背景、肩は素肌） | DIEGO SÁNCHEZ | Unsplash | <https://unsplash.com/photos/ENMjfGTcLHM> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-02.webp` | 後ろから見た、襟足をすっきりさせたメンズショート（淡いブルー背景） | George Huffman | Unsplash | <https://unsplash.com/photos/the-back-of-a-mans-head-in-a-blue-shirt-9mDU8BxZVkA> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-03.webp` | 後ろから見たツヤのあるブラウンのワンレンボブ（サロン店内） | Lu | Unsplash | <https://unsplash.com/photos/womans-sleek-brown-bob-haircut-from-behind-TcWwRcf92GY> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-04.webp` | 逆光に透ける丸みのあるボブの後ろ姿（屋外、白Tシャツ） | Leonid Privalov | Unsplash | <https://unsplash.com/photos/back-view-of-a-womans-back-eEJUBWZARP8> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-05.webp` | 後ろから見たピンクカラーのウェーブボブ（レースの襟） | laura adai | Unsplash | <https://unsplash.com/photos/Oer0WoM8fs0> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-06.webp` | 後ろから見たブロンドのストレートミディアム（肩下） | Alexander Grey | Unsplash | <https://unsplash.com/photos/woman-wearing-gray-top-ORCPTrkkezw> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-07.webp` | 髪を大きく振り上げた動きのあるブラウンヘア（顔は髪で隠れている） | Katsiaryna Endruszkiewicz | Unsplash | <https://unsplash.com/photos/woman-in-gray-sweater-standing-near-white-wall-yZviQtYoP08> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-09.webp` | 斜め後ろから見たダークブラウンのロング、毛先に動き | Blaire Harmon | Unsplash | <https://unsplash.com/photos/the-back-of-a-womans-head-with-long-hair-P3RwgHQ7sr8> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-10.webp` | 後ろから見たグラデーションカラーのウェーブロング | Lera Kogan | Unsplash | <https://unsplash.com/photos/woman-in-white-shirt-with-blonde-hair-CIrRI0ujiRo> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-11.webp` | 後ろから見たストレートロングのハーフアップ（お団子） | K8 | Unsplash | <https://unsplash.com/photos/woman-in-black-tank-top-with-brown-hair-tie-HF19cpvy-Dw> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
-| `style-12.webp` | 後ろから見たボリュームのある黒髪カーリーロング（淡いブルーの壁） | Ursula Castillo | Unsplash | <https://unsplash.com/photos/a-person-with-the-hair-pulled-back-zd34nkm8nEk> | スタイルギャラリー／スタイル比較／Instagram掲載イメージ |
+| ファイル | 内容 | 撮影者 | 元ページ | 使用箇所 |
+|---|---|---|---|---|
+| `v2/hero-long-highlight.webp`（＋`-sm`） | 明るいサロンで後ろから見た、細かなハイライト入りのベージュブロンドのロングヘア。毛先は内巻きのゆるいカール | "Jessie Dee" Dabrowski | <https://unsplash.com/photos/person-wearing-black-top-W6cwaL7PMSw> | ヒーロー（主写真）・OGP画像 |
+| `v2/hero-waves-caramel.webp`（＋`-sm`） | 根元はダークブラウン、毛先に向かってキャラメル色に明るくなるロングのウェーブヘアを斜め横から | Ramón Benitez | <https://unsplash.com/photos/a-woman-with-long-hair-standing-in-a-kitchen-netaAK35IUc> | ヒーロー（補助写真）・OGP画像 |
+| `v2/bob-black-round.webp`（＋`-sm`） | 生成り色の背景で、うつむき加減の横顔と黒髪の丸みのあるボブ。毛先はゆるく内巻き | Suhyeon Choi | <https://unsplash.com/photos/woman-looking-down-VfOw1B-y_rQ> | ピックアップスタイル |
+| `v2/bob-inner-color.webp`（＋`-sm`） | 白背景で斜め後ろから見た、毛先に明るいブロンドのインナーカラーを入れたブラウンのボブ | Dwi Agus Prasetiyo | <https://unsplash.com/photos/a-person-looking-at-the-camera-EMeWJb_RuoQ> | ピックアップスタイル |
+| `v2/layer-waves-lob.webp`（＋`-sm`） | 斜め後ろから見た、ハイライト入りのベージュブラウンのレイヤーロブ。ゆるいウェーブで毛先に動き | Crystal Clark | <https://unsplash.com/photos/a-close-up-of-a-person-with-wavy-hair-z50YODyJU4c> | ピックアップスタイル |
+| `v2/medium-brown-curl-ends.webp`（＋`-sm`） | グレー背景で後ろから見た、毛先をくるんと巻いたツヤのあるブラウンのミディアムヘア | Laura Chouette | <https://unsplash.com/photos/a-woman-with-long-hair-wearing-a-jacket-Sgcji3bbK6Y> | ピックアップスタイル |
+| `v2/bob-ash-side.webp`（＋`-sm`） | 横から見た、アッシュ系グレージュのハイライトが入った動きのあるボブ | Oladimeji Odunsi | <https://unsplash.com/photos/woman-in-black-top-n5aE6hOY6do> | カット・カラー・ケア（カット） |
+| `v2/color-balayage-duo.webp`（＋`-sm`） | 並んだ2人の後ろ姿。左は明るいブロンド、右は根元が暗く毛先がベージュのバレイヤージュのロングウェーブ | Yovanka Loria Salon | <https://unsplash.com/photos/two-women-with-long-wavy-blonde-and-brunette-hair-RpFQdgJ9gQw> | カット・カラー・ケア（カラー） |
+| `v2/straight-gloss.webp`（＋`-sm`） | まっすぐに伸びたツヤのあるブラウンのロングヘアと、手前のかすみ草 | masiha Olfi | <https://unsplash.com/photos/woman-with-long-brown-hair-holding-white-flowers-CxsH6E9lqCo> | カット・カラー・ケア（ケア） |
+| `v2/finish-stylist.webp`（＋`-sm`） | 白いサロン店内で、スタイリストの手がキャラメルブラウンのウェーブヘアを整えている後ろ姿 | Ramón Benitez | <https://unsplash.com/photos/wkWTdIwJemY> | サロン紹介（仕上げ） |
+| `v2/bob-copper.webp`（＋`-sm`） | 淡いグレー背景で、顔を横に向けたカッパー系ピンクのショートボブ | Hàn Vi Phạm Thị | <https://unsplash.com/photos/8qmIkNQcxs0> | スタイルギャラリー |
+| `v2/curls-short.webp`（＋`-sm`） | 淡いブルーグレー背景で後ろから見た、細かなカールが立体的なショートヘア | Alexander Grey | <https://unsplash.com/photos/woman-wearing-white-strapless-top-_e_GZVswkHQ> | スタイルギャラリー |
+| `v2/updo-halfup-curls.webp`（＋`-sm`） | 白背景で斜め後ろから見た、トップをお団子にまとめ毛先をカールさせたダークブラウンのハーフアップ | GN Group | <https://unsplash.com/photos/a-woman-with-her-hair-in-a-bun-hJKiVkuOOyo> | スタイルギャラリー |
+| `v2/updo-braid-blonde.webp`（＋`-sm`） | かすみ草とパールの髪飾りを添えた、編み込み入りのブロンドのルーズなアップスタイル | Lydia Turner | <https://unsplash.com/photos/woman-with-brown-hair-tied-N1VKaGNwRYc> | スタイルギャラリー |
+| `style-03.webp` | 後ろから見たツヤのあるブラウンのワンレンボブ（サロン店内） | Lu | <https://unsplash.com/photos/womans-sleek-brown-bob-haircut-from-behind-TcWwRcf92GY> | スタイルギャラリー |
+| `style-06.webp` | 後ろから見たブロンドのストレートミディアム（肩下） | Alexander Grey | <https://unsplash.com/photos/woman-wearing-gray-top-ORCPTrkkezw> | スタイルギャラリー |
+| `style-10.webp` | 後ろから見たグラデーションカラーのウェーブロング | Lera Kogan | <https://unsplash.com/photos/woman-in-white-shirt-with-blonde-hair-CIrRI0ujiRo> | スタイルギャラリー |
+| `style-11.webp` | 後ろから見たストレートロングのハーフアップ（お団子） | K8 | <https://unsplash.com/photos/woman-in-black-tank-top-with-brown-hair-tie-HF19cpvy-Dw> | スタイルギャラリー |
+| `style-12.webp` | 後ろから見たボリュームのある黒髪カーリーロング（淡いブルーの壁） | Ursula Castillo | <https://unsplash.com/photos/a-person-with-the-hair-pulled-back-zd34nkm8nEk> | スタイルギャラリー |
+| `style-01.webp` | 後ろから見たメンズショート（白背景、肩は素肌） | DIEGO SÁNCHEZ | <https://unsplash.com/photos/ENMjfGTcLHM> | スタイルギャラリー（メンズ） |
+| `style-02.webp` | 後ろから見た、襟足をすっきりさせたメンズショート（淡いブルー背景） | George Huffman | <https://unsplash.com/photos/the-back-of-a-mans-head-in-a-blue-shirt-9mDU8BxZVkA> | スタイルギャラリー（メンズ） |
+| `interior-chair-900.webp` | 木目の鏡台と楕円ミラー前のスタイリングチェア（縦構図、人物なし） | Tile Merchant Ireland | <https://unsplash.com/photos/a-hair-salon-with-chairs-and-mirrors-DUvovc88OfE> | サロン紹介（店内） |
+| `interior-shampoo-900.webp` | 白いシャンプーボウルと黒いシャンプー台が並ぶモノクロ写真（人物なし） | Giorgio Trovato | <https://unsplash.com/photos/a-row-of-black-and-white-chairs-next-to-a-sink-k5xtu6DApUk> | サロン紹介（店内） |
 
-> 「スタイル比較」は、別々のモデルによるイメージ写真を「スタイルA／スタイルB」として並べたものです。同一人物の施術前後ではありません。
+### 前回のデザインから外した写真
+
+カーテン・植物・タオル・小物の写真（`concept` `plant-light` `spa` `tools`）、屋外の後ろ姿（`style-04`）、髪が大きくぶれた写真（`style-07` `style-09`）、強い色の写真（`style-05`）、施術途中の手元（`hands`）は、今回の「ヘアスタイルが主役」の方針に合わないため削除しました。
 
 ## アイコン
 
@@ -73,4 +81,4 @@
 
 ## フォント
 
-- Shippori Mincho / Cormorant Garamond（Google Fonts・SIL Open Font License 1.1）。本文は端末標準のゴシック体
+- Cormorant Garamond（Google Fonts・SIL Open Font License 1.1）：欧文ロゴ「hair salon grace」と欧文の小見出しに使用。日本語は端末標準のゴシック体

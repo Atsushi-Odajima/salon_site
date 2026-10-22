@@ -17,7 +17,7 @@ import { addDays, checkSlot, dayOfWeek, fromMin, jstNow, toMin, type Booked } fr
 export type Status = 'confirmed' | 'visited' | 'cancelled';
 
 export interface Reservation extends Booked {
-  /** 予約番号 例: NAG-20261022-0007 */
+  /** 予約番号 例: GRC-20261022-0007 */
   id: string;
   createdAt: string;
   /** 二重送信防止用。同じ requestId の予約は1件しか作らない */
@@ -54,17 +54,20 @@ export interface ReservationRepository {
   reset(): Promise<void>;
 }
 
+// 保存キーの接頭辞は画面に出ないため旧名のまま（既存データの初期化範囲を変えないため）
 const PREFIX = 'nagi-demo:';
-const KEY = `${PREFIX}reservations-v1`;
+// v2：予約番号の接頭辞を GRC に変更（v1 の旧番号データは使わず、初期データを作り直す）
+const KEY = `${PREFIX}reservations-v2`;
+const ID_PREFIX = 'GRC';
 
 function makeId(date: string, existing: Reservation[]): string {
   const ymd = date.replaceAll('-', '');
   const seq =
     existing
-      .filter((r) => r.id.startsWith(`NAG-${ymd}-`))
+      .filter((r) => r.id.startsWith(`${ID_PREFIX}-${ymd}-`))
       .map((r) => Number(r.id.slice(-4)))
       .reduce((a, b) => Math.max(a, b), 0) + 1;
-  return `NAG-${ymd}-${String(seq).padStart(4, '0')}`;
+  return `${ID_PREFIX}-${ymd}-${String(seq).padStart(4, '0')}`;
 }
 
 /** 選択内容から保存用の予約を組み立てる（空き確認込み） */
