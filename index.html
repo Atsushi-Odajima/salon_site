@@ -6,8 +6,7 @@
     <meta name="description" content="美容室ホームページの制作見本です（架空店舗 hair salon grace）。モデル写真とヘアカタログで髪型・髪色の魅力を伝え、料金シミュレーター、スタイリスト指名からの予約、店側の予約管理画面まで体験できます。" />
     <meta property="og:title" content="【制作見本】hair salon grace｜美容室ホームページの見本" />
     <meta property="og:description" content="モデル写真とヘアカタログが主役の、白を基調にした美容室ホームページの制作見本（架空店舗）。料金シミュレーター・指名予約・予約管理まで体験できます。" />
-    <link rel="preload" as="image" href="/images/v5/hero-pc-long-straight-black.webp" imagesrcset="/images/v5/hero-pc-long-straight-black-sm.webp 800w, /images/v5/hero-pc-long-straight-black.webp 2000w" imagesizes="100vw" media="(min-width: 960px)" fetchpriority="high" />
-    <link rel="preload" as="image" href="/images/v5/hero-sp-long-bangs.webp" imagesrcset="/images/v5/hero-sp-long-bangs-sm.webp 532w, /images/v5/hero-sp-long-bangs.webp 1065w" imagesizes="100vw" media="(max-width: 959px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/images/v6/salon-interior-hero.webp" imagesrcset="/images/v6/salon-interior-hero-sm.webp 800w, /images/v6/salon-interior-hero-md.webp 1400w, /images/v6/salon-interior-hero.webp 2400w" imagesizes="100vw" fetchpriority="high" />
   </head>
   <body class="page-home">
     <a class="skip-link" href="#main">本文へ移動</a>
@@ -15,15 +14,20 @@
 <!--partial:header-->
 
     <main id="main">
-      <!-- 1. ヒーロー：画面いっぱいのモデル写真にブランド名を重ねる -->
+      <!-- 1. ヒーロー：白い余白の枠の中に店内写真、中央に英字のコピー -->
       <section class="hero" aria-label="hair salon grace" data-hero>
-        <picture class="hero-photo">
-          <source media="(max-width: 959px)" srcset="/images/v5/hero-sp-long-bangs-sm.webp 532w, /images/v5/hero-sp-long-bangs.webp 1065w" sizes="100vw" width="1065" height="1600" />
-          <img src="/images/v5/hero-pc-long-straight-black.webp" srcset="/images/v5/hero-pc-long-straight-black-sm.webp 800w, /images/v5/hero-pc-long-straight-black.webp 2000w" sizes="100vw" width="2000" height="1333" alt="胸下まであるダークブラウンのストレートロングの女性（スタイルイメージ）" fetchpriority="high" />
-        </picture>
-        <div class="hero-brand">
-          <p class="hero-logo"><span class="sub">hair salon</span> <span class="main">grace</span></p>
-          <p class="copy">髪から、私らしく。</p>
+        <div class="hero-frame">
+          <picture class="hero-photo">
+            <img src="/images/v6/salon-interior-hero.webp" srcset="/images/v6/salon-interior-hero-sm.webp 800w, /images/v6/salon-interior-hero-md.webp 1400w, /images/v6/salon-interior-hero.webp 2400w" sizes="100vw" width="2400" height="1601" alt="白い天井と黒い椅子が並ぶ明るいヘアサロンの店内（イメージ写真）" fetchpriority="high" />
+          </picture>
+          <h1 class="hero-copy"><span class="en">FIND YOUR GRACE</span><span class="ja">髪から、私らしく。</span></h1>
+          <span class="hero-scroll" aria-hidden="true"></span>
+        </div>
+        <div class="hero-sns" aria-label="SNS（デモ）" role="group">
+          <span class="hero-sns-label" aria-hidden="true">FOLLOW</span>
+          <button type="button" data-demo="instagram" aria-label="Instagram（デモ）" data-brand="instagram" data-icon-size="18"></button>
+          <button type="button" data-demo="line" aria-label="LINE（デモ）" data-brand="line" data-icon-size="18"></button>
+          <button type="button" data-demo="x" aria-label="X（デモ）" data-brand="x" data-icon-size="18"></button>
         </div>
       </section>
       <script>

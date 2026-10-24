@@ -12,15 +12,15 @@
   - 髪型の輪郭・毛先・髪色が分かり、髪にピントが合っていること
   - モデルの正面・斜め・横顔も使用（前髪・顔まわり・毛先・髪色が分かる構図）。モデルを架空スタッフとして紹介しない
   - 実在店舗の看板・店名・ロゴが写っていないこと（`interior-chair-900.webp` は鏡台上の販促物2か所をぼかし処理）
-- 加工：WebP 変換・リサイズ・トリミングのみ（髪色の加工はしていない）。`v4`・`v5` の `*.webp` は長辺1400〜2000px、`*-sm.webp` は長辺800px（スマホ・一覧用）。`public/og.jpg` は `v5/hero-pc-long-straight-black` を切り抜き、欧文ロゴと「髪から、私らしく。」を重ねたもの
+- 加工：WebP 変換・リサイズ・トリミングのみ（髪色の加工はしていない）。`v4`・`v5` の `*.webp` は長辺1400〜2000px、`*-sm.webp` は長辺800px（スマホ・一覧用）。`public/og.jpg` は `v6/salon-interior-hero` に黒い四角のロゴとコピー「FIND YOUR GRACE／髪から、私らしく。」を重ねたもの
 - 掲載写真はスタイルのイメージで、当店（架空）の施術実績・スタッフの作品ではありません
 - **モデルについて（2026-10-22）**：依頼により、モデルは**東アジア系の女性・ロングヘアのみ**にしています（ショート・ボブ・肩までのミディアム・メンズの写真は使っていません）。掲載写真のモデルは、写真ページに国籍・撮影地の記載がなく**外見から選んだもの**で、「日本人モデル」とは表記していません
 - Unsplash の検索は「無料（Free）」のライセンスに絞って行いました
 
 | ファイル | 内容 | 撮影者 | 元ページ | 日本との関連 | 使用箇所 |
 |---|---|---|---|---|---|
-| `v5/hero-pc-long-straight-black.webp`（＋`-sm`） | 明るくぼけた緑の背景の前で、胸下までのダークブラウンのストレートロングの女性が正面を向いている | Thanh Duc PHAN | <https://unsplash.com/photos/i5R8hbZFDdc> | 記載なし（外見のみで判断） | ヒーロー（PC）・OGP画像・スタイル一覧 |
-| `v5/hero-sp-long-bangs.webp`（＋`-sm`） | グレーの無地背景のスタジオで、前髪ありの黒髪ストレートロングの女性が微笑んでいる（中央を縦長に切り抜き） | Dynamic Wang | <https://unsplash.com/photos/_JAAQZ2wt5I> | 記載なし（外見のみで判断） | ヒーロー（スマホ）・スタイル一覧 |
+| `v5/hero-pc-long-straight-black.webp`（＋`-sm`） | 明るくぼけた緑の背景の前で、胸下までのダークブラウンのストレートロングの女性が正面を向いている | Thanh Duc PHAN | <https://unsplash.com/photos/i5R8hbZFDdc> | 記載なし（外見のみで判断） | スタイル一覧 |
+| `v5/hero-sp-long-bangs.webp`（＋`-sm`） | グレーの無地背景のスタジオで、前髪ありの黒髪ストレートロングの女性が微笑んでいる（中央を縦長に切り抜き） | Dynamic Wang | <https://unsplash.com/photos/_JAAQZ2wt5I> | 記載なし（外見のみで判断） | スタイル一覧 |
 | `v4/cat-long-dark-waves.webp`（＋`-sm`） | 腰に届く長さの黒髪に全体のゆるいウェーブ。横顔から毛先まで分かる | Silas Hao | <https://unsplash.com/photos/woman-with-red-lipstick-and-black-hair-TWEoISk5WoI> | 記載なし（外見のみで判断） | HAIR CATALOG（大・WAVE・CURL）・スタイル一覧 |
 | `v4/cat-color-copper-brown-waves.webp`（＋`-sm`） | 赤みのある明るいブラウンの髪色に、胸下までのゆるいウェーブ | Tan Duong | <https://unsplash.com/photos/woman-with-long-hair-at-waterfront-0ZOb8d31yNY> | 記載なし（外見のみで判断） | HAIR CATALOG（COLOR）・スタイル一覧 |
 | `v5/cat-straight-long-black.webp`（＋`-sm`） | 木漏れ日の緑を背景に、胸下までの黒髪ストレートロングの女性 | Chalaphan Mathong | <https://unsplash.com/photos/dksfrmujnDg> | 記載なし（外見のみで判断） | HAIR CATALOG（STRAIGHT）・スタイル一覧 |
@@ -33,10 +33,13 @@
 | `v5/extra-color-copper-curl-long.webp`（＋`-sm`） | 水辺で、赤みのあるブラウンの巻き髪ロングの女性 | Tan Duong | <https://unsplash.com/photos/hBViUpdlC9g> | 記載なし（外見のみで判断） | スタイル一覧 |
 | `v5/extra-straight-long-smile.webp`（＋`-sm`） | 緑を背景に、胸下までの黒髪ストレートロングの女性が微笑んでいる | Chalaphan Mathong | <https://unsplash.com/photos/FJ2QW7Mx2sE> | 記載なし（外見のみで判断） | スタイル一覧 |
 | `v5/extra-arrange-ponytail-back.webp`（＋`-sm`） | 緑の壁を背景に、黒髪ロングを後ろでひとつに結んだ女性の後ろ姿（人物を中心に縦長に切り抜き） | Maccy | <https://unsplash.com/photos/nbl0AArhRow> | 記載なし（外見のみで判断） | スタイル一覧 |
+| `v6/salon-interior-hero.webp`（＋`-md`・`-sm`） | 白い天井・間接照明の下に黒い椅子と丸い鏡が並ぶ、奥行きのあるヘアサロンの店内（人物なし）。奥の壁の店名の看板・窓の文字・機器のロゴはぼかし処理 | Benyamin Bohlouli | <https://unsplash.com/photos/LGXN4OSQSa4> | ― | ヒーロー（PC・スマホ）・OGP画像 |
 | `interior-chair-900.webp` | 木目の鏡台と楕円ミラー前のスタイリングチェア（縦構図、人物なし） | Tile Merchant Ireland | <https://unsplash.com/photos/a-hair-salon-with-chairs-and-mirrors-DUvovc88OfE> | ― | SALON（店内） |
 | `interior-shampoo-900.webp` | 白いシャンプーボウルと黒いシャンプー台が並ぶモノクロ写真（人物なし） | Giorgio Trovato | <https://unsplash.com/photos/a-row-of-black-and-white-chairs-next-to-a-sink-k5xtu6DApUk> | ― | SALON（店内） |
 
-### 検討して使わなかった素材（2026-10-22）
+### 検討して使わなかった素材（2026-10-22・10-24）
+
+- 2026-10-24：「Web検索で出てきた日本人のヘアモデル画像を使い、あとで顔にモザイクを入れる」案は、公開URLのサイトであり、モザイクを入れても写真の著作権（撮影者・サロン）は残るため採用していません。ヘアモデルは下表の Unsplash 写真のままです
 
 「日本人・20代・後ろ姿のヘアカラー仕上がり写真（ホットペッパービューティーのスタイル写真のようなもの）」を国内の無料素材サイトで探しましたが、次の理由で今回は使っていません。
 

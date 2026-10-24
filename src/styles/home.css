@@ -67,21 +67,36 @@
   margin-inline: auto;
 }
 
-/* ---------- 1. ヒーロー：画面いっぱいのモデル写真＋ブランド名 ---------- */
+/* ---------- 1. ヒーロー：白い余白の枠の中に店内写真、中央に英字のコピー ---------- */
+/* ヘッダーは写真の上に重ねる（透明）。ロゴの黒い四角が枠の左上に重なる */
+.page-home {
+  --frame: 12px;
+}
+@media (min-width: 960px) {
+  .page-home {
+    --frame: clamp(32px, 3.4vw, 56px);
+  }
+}
 .page-home main > .hero {
   position: relative;
-  padding: 0;
+  padding: 0 var(--frame) var(--frame);
   border-top: 0;
-  /* 透明ヘッダーの下に写真を潜り込ませる（ヘッダーの高さ分だけ上へ） */
   margin-top: calc(-1 * var(--header-h));
-  height: clamp(480px, 72svh, 760px);
+  background: #fff;
+}
+.hero-frame {
+  position: relative;
+  height: clamp(440px, 72svh, 720px);
   overflow: hidden;
-  background: #e9e9e9;
-  color: #fff;
+  background: #ddd;
 }
 @media (min-width: 960px) {
   .page-home main > .hero {
-    height: clamp(560px, calc(100svh - 36px), 940px);
+    padding-top: calc(var(--logo-box) * 0.32);
+  }
+  .hero-frame {
+    height: clamp(560px, calc(100svh - 36px - var(--logo-box) * 0.32 - var(--frame)), 900px);
+    outline: 1px solid var(--line);
   }
 }
 .hero-photo,
@@ -94,101 +109,129 @@
 }
 .hero-photo img {
   object-fit: cover;
-  object-position: 50% 70%; /* スマホ：頭の上は少し削り、毛先と肩の下の余白を残す */
+  object-position: 42% 50%;
+}
+/* ヘッダー：ヒーロー上では背景を透明にし、ロゴの黒い四角を枠の左上に重ねる（PCは少し大きく） */
+.site-header .logo {
+  transition: height 0.3s var(--ease);
 }
 @media (min-width: 960px) {
-  .hero-photo img {
-    object-position: 50% 35%;
+  .page-home .site-header.is-overlay .logo {
+    height: var(--logo-box);
+  }
+  .page-home .header-inner {
+    padding-left: calc(var(--frame) / 2);
+  }
+  .page-home .global-nav ul {
+    margin-right: calc(var(--frame) + 1.5rem);
   }
 }
-.hero-photo::after {
-  content: '';
+
+/* 中央のコピー：写真の奥（やや暗い部分）に白い英字を重ねる。写真全体は暗くせず、文字の影だけで読みやすくする */
+.hero-copy {
   position: absolute;
   inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 0 1rem;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 18px rgba(0, 0, 0, 0.55), 0 1px 3px rgba(0, 0, 0, 0.45);
   pointer-events: none;
 }
-/* 写真の背景が明るいクリーム色のため、ロゴ・コピーは黒文字。写真は暗くしない */
-.hero-brand {
-  position: absolute;
-  z-index: 1;
-  color: var(--text);
-}
-.hero-brand .sub {
+.hero-copy .en {
   display: block;
-  font-family: var(--font-latin);
-  font-size: clamp(0.85rem, 0.75rem + 0.45vw, 1.25rem);
+  font-family: var(--font-nav);
+  font-weight: 400;
+  font-size: clamp(1.6rem, 1rem + 3.4vw, 4rem);
+  line-height: 1.35;
   letter-spacing: 0.42em;
-  margin: 0 0 0.1rem 0.2em;
+  margin-right: -0.42em; /* 字間の分だけ右にずれるのを打ち消して中央に揃える */
 }
-.hero-brand .main {
+.hero-copy .ja {
   display: block;
-  font-family: var(--font-latin);
-  font-weight: 500;
-  line-height: 0.85;
-  letter-spacing: 0.04em;
-}
-.hero-brand .copy {
-  margin: 1.1rem 0 0 0.2em;
-  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.2rem);
+  margin-top: 1.2rem;
+  font-size: clamp(0.95rem, 0.9rem + 0.3vw, 1.15rem);
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.24em;
+  margin-right: -0.24em;
 }
-.page-home .site-header.is-overlay {
-  color: var(--text);
+/* 下中央のスクロール表示（細い線） */
+.hero-scroll {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  z-index: 1;
+  width: 1px;
+  height: 56px;
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateX(-50%);
 }
-/* PC：ナビが髪の上に重なっても読めるよう、ヘッダーの高さだけ薄い白のグラデーションを敷く（写真全体は暗くしない） */
+.hero-scroll::after {
+  content: 'SCROLL';
+  position: absolute;
+  bottom: calc(100% + 0.6rem);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-nav);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+/* PC：右の余白に縦書きのSNSリンク（実在アカウントには接続せず、デモ案内を表示） */
+.hero-sns {
+  display: none;
+}
 @media (min-width: 960px) {
-  .page-home .site-header.is-overlay::before {
-    content: '';
+  .hero-sns {
     position: absolute;
-    inset: 0 0 -48px;
-    z-index: -1;
-    background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.5) 55%, rgba(255, 255, 255, 0));
-    pointer-events: none;
+    right: 0;
+    top: 50%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    width: var(--frame);
+    transform: translateY(-50%);
+  }
+  .hero-sns-label {
+    writing-mode: vertical-rl;
+    font-family: var(--font-nav);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    margin-bottom: 0.4rem;
+  }
+  .hero-sns button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .hero-sns button:hover {
+    opacity: 0.6;
   }
 }
-.is-overlay .logo,
-.is-overlay .global-nav > ul a {
-  text-shadow: none;
-}
-/* スマホ：写真の上には顔・手・毛先にかからない余白がないため、ロゴとコピーは写真のすぐ下の白い帯に置く
-   （スクロール前に写真とブランド名の両方が見える） */
-@media (max-width: 959px) {
-  .page-home main > .hero {
-    height: auto;
-    background: #fff;
+@media (prefers-reduced-motion: no-preference) {
+  .hero-scroll {
+    background: linear-gradient(#fff, #fff) 0 0 / 100% 40% no-repeat, rgba(255, 255, 255, 0.35);
+    animation: hero-scroll 2.2s var(--ease) infinite;
   }
-  .hero-photo {
-    position: relative;
-    display: block;
-    height: clamp(360px, 62svh, 600px);
-    overflow: hidden;
-  }
-  .hero-photo img {
-    object-position: 50% 38%;
-  }
-  .hero-brand {
-    position: static;
-    padding: 0.9rem var(--gutter) 1.1rem;
-  }
-  .hero-brand .sub {
-    font-size: 0.8rem;
-  }
-  .hero-brand .main {
-    font-size: min(17vw, 4.5rem);
-  }
-  .hero-brand .copy {
-    margin-top: 0.5rem;
-  }
-}
-/* PC：左の壁の、ボブの毛先より下の位置に配置（髪の輪郭・顔にかからない） */
-@media (min-width: 960px) {
-  .hero-brand {
-    left: clamp(2rem, 3.5vw, 4rem);
-    bottom: 5%;
-  }
-  .hero-brand .main {
-    font-size: clamp(5rem, 6.6vw, 7rem);
+  @keyframes hero-scroll {
+    from { background-position: 0 -40%; }
+    to { background-position: 0 160%; }
   }
 }
 
@@ -1136,14 +1179,7 @@
 .salon-grid p {
   margin: 0 0 0.9rem;
 }
-.hero-logo {
-  margin: 0;
-}
 
-/* ヒーロー上では写真の大きなロゴを主役にし、ヘッダーのロゴは隠す（スクロール後に表示） */
-.page-home .site-header.is-overlay .logo {
-  visibility: hidden;
-}
 
 /* スマホの小さなタイルは英語ラベルだけにして、髪を隠さない（日本語はリンクの読み上げ名にある） */
 @media (max-width: 599px) {
