@@ -6,7 +6,7 @@
 
 | ファイル | 内容 |
 |---|---|
-| `01-pc-firstview.png` | PC（1440×900）：白い余白の枠に店内写真、中央に FIND YOUR GRACE／髪から、私らしく。左上に黒い四角のロゴ、右上に英字ナビ、右の余白に FOLLOW＋SNS |
+| `01-pc-firstview.png` | PC（1440×900）：白い余白の枠に店内写真、中央に FIND YOUR GRACE／髪から、私らしく。左上に黒い四角のロゴ、右上に英字ナビ、右の余白に FOLLOW＋SNS、右下に公式LINE・Instagram・ホットペッパービューティーのボタン |
 | `02-sp390-firstview.png` / `03-sp375-firstview.png` | スマホ（390×844／375×667）：店内写真と英字コピー、左上の黒いロゴ、右上の MENU ボタン |
 | `04-pc-hair-catalog.png` / `10-sp-hair-catalog.png` | HAIR CATALOG（大1＋小4、カテゴリラベル） |
 | `09-pc-style-list.png` | カテゴリで絞り込めるスタイル一覧 |

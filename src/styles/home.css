@@ -183,6 +183,111 @@
   color: #fff;
   text-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
 }
+/* 右下：公式LINE・Instagram・ホットペッパービューティーへのリンク（「設置できます」を見せる見本）。
+   HPB は公式ロゴの配布素材を確認できないため、ロゴは作らず文字だけのボタンにしている */
+.hero-links {
+  position: absolute;
+  right: clamp(0.75rem, 2vw, 1.75rem);
+  bottom: clamp(0.75rem, 2vw, 1.75rem);
+  z-index: 2;
+  padding: 0.7rem 0.75rem 0.75rem;
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: var(--radius);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+.hero-links-title {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-2);
+  line-height: 1.4;
+}
+.hero-links-title .en {
+  display: block;
+  font-family: var(--font-nav);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--text);
+}
+.hero-links ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+}
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: var(--tap);
+  padding: 0 0.85rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--text);
+  font-size: 0.875rem;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.hero-link:hover {
+  border-color: var(--text);
+}
+.hero-link--line .brand-icon {
+  color: #06c755;
+}
+.hpb-mark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-family: var(--font-nav);
+  line-height: 1.05;
+}
+.hpb-mark span:first-child {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.hpb-mark span:last-child {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+/* スマホ：コピー・SCROLL と重ならないよう、写真の下端に横いっぱいで並べる */
+@media (max-width: 599px) {
+  .hero-links {
+    left: 0.5rem;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    padding: 0.55rem;
+  }
+  .hero-links-title {
+    margin-bottom: 0.4rem;
+  }
+  .hero-links ul {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.35rem;
+  }
+  .hero-link {
+    width: 100%;
+    padding: 0 0.3rem;
+    font-size: 0.8125rem;
+    gap: 0.3rem;
+  }
+  .hpb-mark span:first-child {
+    font-size: 0.5625rem;
+  }
+  .hpb-mark span:last-child {
+    font-size: 0.8125rem;
+  }
+  .hero-scroll {
+    display: none;
+  }
+}
+
 /* PC：右の余白に縦書きのSNSリンク（実在アカウントには接続せず、デモ案内を表示） */
 .hero-sns {
   display: none;
